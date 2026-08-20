@@ -3,21 +3,23 @@
 #include<assert.h>
 #include"main.h"
 
-enum Roots {
-
-};
+// TODO - generate enum
+// TODO - generate documentation using doxygen
+// enum Roots {
+//
+// };
 
 int main() {
     double a = 0.0, b = 0.0, c = 0.0;
     int scanCount = 0;
     do {
-        printf("Enter the coefficients: a, b, c: ");
-        scanCount = scanf("%lf%lf%lf", &a, &b, &c);
+        printf ("Enter the coefficients: a, b, c: ");
+        scanCount = scanf ("%lf%lf%lf", &a, &b, &c);
 
         if (scanCount != 3) {
-            printf("insufficient variables entered, do it again.\n");
-            int ch; // PIZDEC
-            while ((ch = getchar()) != '\n' && ch != EOF);
+            printf ("insufficient variables entered, do it again.\n");
+            int ch; // TODO - extract into separate function
+            while ((ch = getchar ()) != '\n' && ch != EOF);
         }
     } while (scanCount != 3);
 
@@ -35,7 +37,7 @@ double find_disc (const double a, const double b, const double c) {
     return b * b - 4 * a * c;
 }
 
-void print_root(double x1, double x2, int nRoot) {
+void print_root (double x1, double x2, int nRoot) {
     switch(nRoot) {
         case ZERO:
             printf ("zero root, x1 = x2 = none");
@@ -68,7 +70,6 @@ int solve_linear (const double b, const double c, double* x1) {
 }
 
 int solve_square (const double a, const double b, const double c, double* x1, double* x2) {
-
     if (is_zero(c)) {
         *x1 = 0;
         *x2 = -b / a + 0.0;

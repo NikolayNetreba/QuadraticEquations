@@ -8,15 +8,16 @@
 /**
  @brief Константа для сравнения чисел с плавающей точкой с нулем.
 */
+
 #define EPS 1e-9
 #define MAX_OP_LEN 100
 #define MAX_OP_LEN_STR "99"
 
 typedef enum {
-    OP_EXIT = 400,
-    OP_OK = 0,
-    OP_IMPOSSIBLE = 500,
-    OP_DO_IT_AGAIN = 401
+    OP_STATUS_EXIT = 400,
+    OP_STATUS_OK = 0,
+    OP_STATUS_IMPOSSIBLE = 500,
+    OP_STATUS_DO_IT_AGAIN = 401
 } opStatus;
 /**
  @brief Отлов ошибок пользователя.
@@ -36,8 +37,8 @@ typedef enum {
     ZERO_ROOTS = 0,    ///< Уравнение не имеет решений.
     ONE_ROOT = 1,     ///< Уравнение имеет 1 решение.
     TWO_ROOTS = 2,     ///< Уравнение имеет 2 решения.
-    INF = 200,   ///< Уравнение имеет бесконечное кол-во корней.
-    ERROR = 404, ///< Деление на 0.
+    INF_ROOTS = 200,   ///< Уравнение имеет бесконечное кол-во корней.
+    ERROR_ROOTS = 404, ///< Деление на 0.
 } roots;
 
 /**
@@ -107,7 +108,7 @@ void print_root (const double x1, const double x2, const roots nRoot);
 /**
  @brief Очищает поле ввода если пользователь ввел мусор.
 */
-void clear_buffer ();
+int clear_buffer ();
 
 /**
  @brief Ввод коэффициентов уравнения
@@ -121,3 +122,6 @@ opStatus read_from_file  (double* a, double* b, double* c, FILE* file);
 opStatus input_coefficients (double* a, double* b, double* c);
 void choose_option (char* op);
 FILE* scan_file_name ();
+int handle_op_status(const double a, const double b, const double c, opStatus state);
+bool check_buffer();
+void scan_op(char* op);

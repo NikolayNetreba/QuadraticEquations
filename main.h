@@ -9,7 +9,15 @@
  @brief Константа для сравнения чисел с плавающей точкой с нулем.
 */
 #define EPS 1e-9
+#define MAX_OP_LEN 100
+#define MAX_OP_LEN_STR "99"
 
+typedef enum {
+    OP_EXIT = 400,
+    OP_OK = 0,
+    OP_IMPOSSIBLE = 500,
+    OP_DO_IT_AGAIN = 401
+} opStatus;
 /**
  @brief Отлов ошибок пользователя.
  @param [in] condition Проверяемое условие.
@@ -25,9 +33,9 @@
  @brief Перечисление статусов и количество корней уравнения.
 */
 typedef enum {
-    ZERO = 0,    ///< Уравнение не имеет решений.
-    ONE = 1,     ///< Уравнение имеет 1 решение.
-    TWO = 2,     ///< Уравнение имеет 2 решения.
+    ZERO_ROOTS = 0,    ///< Уравнение не имеет решений.
+    ONE_ROOT = 1,     ///< Уравнение имеет 1 решение.
+    TWO_ROOTS = 2,     ///< Уравнение имеет 2 решения.
     INF = 200,   ///< Уравнение имеет бесконечное кол-во корней.
     ERROR = 404, ///< Деление на 0.
 } roots;
@@ -99,13 +107,17 @@ void print_root (const double x1, const double x2, const roots nRoot);
 /**
  @brief Очищает поле ввода если пользователь ввел мусор.
 */
-void clear_the_buffer ();
+void clear_buffer ();
 
 /**
- @brief Ввод коэффициентов уравнения.
+ @brief Ввод коэффициентов уравнения
  @param [in] a Указатель на коэффициент при x^2.
  @param [in] b Указатель на коэффициент при x.
  @param [in] c Указатель на свободный член.
  @param [out] scanCount кол-во правильно считанных переменных.
 */
-void scanСoefficient (double* a, double* b, double* c, int* scanCount);
+void scan_coefficient (double* a, double* b, double* c);
+opStatus read_from_file  (double* a, double* b, double* c, FILE* file);
+opStatus input_coefficients (double* a, double* b, double* c);
+void choose_option (char* op);
+FILE* scan_file_name ();

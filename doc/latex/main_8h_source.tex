@@ -1,0 +1,38 @@
+\doxysection{main.\+h}
+\hypertarget{main_8h_source}{}\label{main_8h_source}\doxymbox{\hyperlink{main_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ EPS\ 1e-\/9}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ verify\_it(condition,\ message)\ \(\backslash\)}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\ \ \ \ if(!(condition))\{\(\backslash\)}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ printf(message);\(\backslash\)}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ abort();\(\backslash\)}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\ \ \ \ \}\(\backslash\)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3cae117e3533122c80b262257b49b21cddf}{ZERO}}\ =\ 0,\ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3ca7a725f13af144bdef532d0389ba75e0d}{ONE}}\ =\ 1,\ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3ca0e793500a63ffa575b9b712ca3bc9851}{TWO}}\ =\ 2,\ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3ca2e6059d72d8fde88f3127eb147e4eff8}{INF}}\ =\ 200,\ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3ca2fd6f336d08340583bd620a7f5694c90}{ERROR}}\ =\ 404,\ }
+\DoxyCodeLine{00033\ \}\ \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00053\ \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots}}\ \doxymbox{\hyperlink{main_8c_a35a46daa92bc2deb79a451fceb1358a1}{solve\_quadratic\_equations}}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ a,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ b,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ c,\ \textcolor{keywordtype}{double}*\ x1,\ \textcolor{keywordtype}{double}*\ x2);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00062\ \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots}}\ \doxymbox{\hyperlink{main_8c_a08ee7da9f96dcf09a87e9a7ff66e91a6}{solve\_linear}}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ b,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ c,\ \textcolor{keywordtype}{double}*\ x1);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00073\ \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots}}\ \doxymbox{\hyperlink{main_8c_a9b07eb42073218b87e870c8695687cf0}{solve\_square}}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ a,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ b,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ c,\ \textcolor{keywordtype}{double}*\ x1,\ \textcolor{keywordtype}{double}*\ x2);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{main_8c_af45aa666fa6057be09f8e03356e0d736}{is\_zero}}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ val);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00089\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{main_8c_a7842bdf8067fd0df7f83441156b216ab}{find\_discriminant}}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ a,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ b,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ c);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{main_8c_a487a10093842cef57db6c158c1b9b48f}{print\_root}}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x2,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots}}\ nRoot);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{main_8c_a2b0769b623a6a6c76c8a4e87e6afdeae}{clear\_the\_buffer}}\ ();}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00111\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{main_8c_a94345c0a7c0d1d1e7de2258a72694d69}{scanСoefficient}}\ (\textcolor{keywordtype}{double}*\ a,\ \textcolor{keywordtype}{double}*\ b,\ \textcolor{keywordtype}{double}*\ c,\ \textcolor{keywordtype}{int}*\ scanCount);}
+
+\end{DoxyCode}

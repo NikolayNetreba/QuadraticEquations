@@ -1,43 +1,46 @@
 #include<stdio.h>
 #include<math.h>
 #include<assert.h>
+#include<stdbool.h>
 #include"main.h"
-
-// TODO - generate enum
-// TODO - generate documentation using doxygen
-// enum Roots {
-//
-// };
 
 int main() {
     double a = 0.0, b = 0.0, c = 0.0;
     int scanCount = 0;
-    do {
-        printf ("Enter the coefficients: a, b, c: ");
-        scanCount = scanf ("%lf%lf%lf", &a, &b, &c);
-
-        if (scanCount != 3) {
-            printf ("insufficient variables entered, do it again.\n");
-            int ch; // TODO - extract into separate function
-            while ((ch = getchar ()) != '\n' && ch != EOF);
-        }
-    } while (scanCount != 3);
+    scanСoefficient(&a, &b, &c, &scanCount);
 
     double x1 = 0, x2 = 0;
-    int nRoot = solve_quadratic_equations (a, b, c, &x1, &x2);
+    roots nRoot = solve_quadratic_equations (a, b, c, &x1, &x2);
     print_root (x1, x2, nRoot);
     return 0;
 }
 
-int is_zero (const double val) {
+void scanСoefficient (double* a, double* b, double* c, int* scanCount) {
+    do {
+        printf ("Enter the coefficients: a, b, c: ");
+        *scanCount = scanf ("%lf%lf%lf", a, b, c);
+
+        if (*scanCount != 3) {
+            printf ("insufficient variables entered, do it again.\n");
+            clear_the_buffer ();
+        }
+    } while (*scanCount != 3);
+}
+
+void clear_the_buffer () {
+    int trash = 0;
+    while ((trash = getchar ()) != '\n' && trash != EOF);
+}
+
+bool is_zero (const double val) {
     return fabs (val) < EPS;
 }
 
-double find_disc (const double a, const double b, const double c) {
+double find_discriminant (const double a, const double b, const double c) {
     return b * b - 4 * a * c;
 }
 
-void print_root (double x1, double x2, int nRoot) {
+void print_root (const double x1, const double x2, const roots nRoot) {
     switch(nRoot) {
         case ZERO:
             printf ("zero root, x1 = x2 = none");
@@ -51,12 +54,15 @@ void print_root (double x1, double x2, int nRoot) {
         case INF:
             printf ("infinite");
             break;
-        default:
+        case ERROR:
             printf ("ERROR");
+            break;
+        default:
+            printf ("IDK");
     }
 }
 
-int solve_linear (const double b, const double c, double* x1) {
+roots solve_linear (const double b, const double c, double* x1) {
     if (is_zero(b) && is_zero(c)) {
         return INF;
     }
@@ -69,13 +75,13 @@ int solve_linear (const double b, const double c, double* x1) {
     return ONE;
 }
 
-int solve_square (const double a, const double b, const double c, double* x1, double* x2) {
+roots solve_square (const double a, const double b, const double c, double* x1, double* x2) {
     if (is_zero(c)) {
         *x1 = 0;
         *x2 = -b / a + 0.0;
         return TWO;
     }
-    double disc = find_disc(a, b, c);
+    double disc = find_discriminant(a, b, c);
     if (disc > 0) {
         double sqDisc = sqrt (disc);
         *x1 = (-b + sqDisc) / (2 * a);
@@ -89,9 +95,10 @@ int solve_square (const double a, const double b, const double c, double* x1, do
     return ZERO;
 }
 
-int solve_quadratic_equations (const double a, const double b, const double c, double* x1, double* x2) {
+roots solve_quadratic_equations (const double a, const double b, const double c, double* x1, double* x2) {
     assert (x1 != NULL);
     assert (x2 != NULL);
+    assert (x1 != x2);
 
     if (is_zero(a)) {
         return solve_linear (b, c, x1);

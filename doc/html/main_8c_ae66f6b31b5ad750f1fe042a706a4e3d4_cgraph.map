@@ -1,0 +1,30 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title=" " alt="" coords="11,104,60,131"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="8,105,3,96,6,86,17,80,36,77,56,80,67,88,62,90,54,85,36,83,19,85,10,89,8,95,13,103"/>
+<area shape="rect" id="Node000002" href="$main_8c.html#a487a10093842cef57db6c158c1b9b48f" title="Выводит результат работы программы, с учетом кол&#45;ва корней." alt="" coords="158,29,234,56"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="52,102,77,83,107,66,145,53,142,57,110,70,80,87,56,105"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a94345c0a7c0d1d1e7de2258a72694d69" title="Ввод коэффициентов уравнения." alt="" coords="140,104,252,131"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="60,115,127,115,123,119,62,120"/>
+<area shape="rect" id="Node000005" href="$main_8c.html#a35a46daa92bc2deb79a451fceb1358a1" title="Главная функция&#45;диспетчер для решения квадратного уравнения" alt="" coords="108,191,284,217"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="61,128,158,181,154,184,61,133"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="168,29,163,21,167,11,178,5,196,3,215,5,227,13,222,15,214,10,196,8,180,10,171,15,169,20,173,29"/>
+<area shape="poly" id="edge7_Node000003_Node000003" title=" " alt="" coords="168,103,163,95,167,86,178,80,196,77,215,80,227,88,222,89,214,85,196,83,180,85,171,89,169,95,173,104"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a2b0769b623a6a6c76c8a4e87e6afdeae" title="Очищает поле ввода если пользователь ввел мусор." alt="" coords="332,91,445,117"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="251,111,319,108,314,110,253,116"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="360,90,355,82,358,72,370,66,388,64,408,67,420,75,415,75,406,72,388,69,371,71,362,76,360,81,365,91"/>
+<area shape="poly" id="edge14_Node000005_Node000005" title=" " alt="" coords="168,190,163,182,167,172,178,166,196,164,215,167,227,175,222,176,214,172,196,169,180,171,171,176,169,181,173,191"/>
+<area shape="rect" id="Node000006" href="$main_8c.html#af45aa666fa6057be09f8e03356e0d736" title="Проверяет равно ли число 0 с учетом погрешности EPS." alt="" coords="521,216,584,243"/>
+<area shape="poly" id="edge9_Node000005_Node000006" title=" " alt="" coords="247,187,290,179,340,172,393,171,446,177,483,190,519,209,514,208,482,195,444,183,393,176,340,178,291,184,249,193"/>
+<area shape="rect" id="Node000007" href="$main_8c.html#a08ee7da9f96dcf09a87e9a7ff66e91a6" title="Функция для решения уравнений линейного вида." alt="" coords="343,216,434,243"/>
+<area shape="poly" id="edge11_Node000005_Node000007" title=" " alt="" coords="284,213,330,221,325,222,284,218"/>
+<area shape="rect" id="Node000008" href="$main_8c.html#a9b07eb42073218b87e870c8695687cf0" title="Функция для решения уравнений квадратного вида." alt="" coords="339,291,438,317"/>
+<area shape="poly" id="edge15_Node000005_Node000008" title=" " alt="" coords="224,215,350,282,345,284,223,220"/>
+<area shape="poly" id="edge10_Node000006_Node000006" title=" " alt="" coords="524,214,519,207,523,198,534,192,553,189,573,192,584,201,579,200,571,197,553,195,536,197,527,201,525,207,529,217"/>
+<area shape="poly" id="edge12_Node000007_Node000006" title=" " alt="" coords="434,227,508,229,503,230,434,232"/>
+<area shape="poly" id="edge13_Node000007_Node000007" title=" " alt="" coords="360,215,355,207,358,198,370,192,388,189,408,192,420,201,415,200,406,197,388,195,371,197,362,201,360,207,365,217"/>
+<area shape="poly" id="edge18_Node000008_Node000006" title=" " alt="" coords="417,288,492,252,504,249,509,248,494,257,419,293"/>
+<area shape="poly" id="edge19_Node000008_Node000008" title=" " alt="" coords="360,289,355,282,358,272,370,266,388,264,408,267,420,276,415,275,406,272,388,269,371,271,362,276,360,281,365,291"/>
+<area shape="rect" id="Node000009" href="$main_8c.html#a7842bdf8067fd0df7f83441156b216ab" title="Подсчитывает дискриминант квадратного уравнения." alt="" coords="493,291,612,317"/>
+<area shape="poly" id="edge16_Node000008_Node000009" title=" " alt="" coords="438,301,480,304,475,304,438,307"/>
+<area shape="poly" id="edge17_Node000009_Node000009" title=" " alt="" coords="524,289,519,282,523,272,534,266,553,264,573,267,584,276,579,275,571,272,553,269,536,271,527,276,525,281,529,291"/>
+</map>

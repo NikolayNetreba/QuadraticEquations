@@ -1,0 +1,7 @@
+<map id="solve_linear" name="solve_linear">
+<area shape="rect" id="Node000001" title="Функция для решения уравнений линейного вида." alt="" coords="5,29,96,56"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="28,29,24,21,27,11,36,5,51,3,66,5,75,14,70,14,64,10,50,8,38,10,31,14,30,20,33,29"/>
+<area shape="rect" id="Node000002" href="$main_8c.html#af45aa666fa6057be09f8e03356e0d736" title="Проверяет равно ли число 0 с учетом погрешности EPS." alt="" coords="144,29,207,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,40,131,42,125,43,96,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="153,28,149,21,152,11,161,5,175,3,191,5,200,15,195,14,189,10,175,8,163,10,156,14,155,20,158,30"/>
+</map>

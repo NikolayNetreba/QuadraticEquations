@@ -1,0 +1,387 @@
+\doxysection{main.\+h File Reference}
+\hypertarget{main_8h}{}\label{main_8h}\index{main.h@{main.h}}
+
+
+Программа для решения квадратных и линейных уравнений.  
+
+
+This graph shows which files directly or indirectly include this file:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=125pt]{main_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{main_8h_a6ebf6899d6c1c8b7b9d09be872c05aae}{EPS}}~1e-\/9
+\begin{DoxyCompactList}\small\item\em Константа для сравнения чисел с плавающей точкой с нулем. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{main_8h_a8c45d6ba00c88fa750cb805bc3cb7eba}{verify\+\_\+it}}(condition,  message)
+\begin{DoxyCompactList}\small\item\em Отлов ошибок пользователя. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots}} \{ \newline
+\doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3cae117e3533122c80b262257b49b21cddf}{ZERO}} = 0
+, \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3ca7a725f13af144bdef532d0389ba75e0d}{ONE}} = 1
+, \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3ca0e793500a63ffa575b9b712ca3bc9851}{TWO}} = 2
+, \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3ca2e6059d72d8fde88f3127eb147e4eff8}{INF}} = 200
+, \newline
+\doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3ca2fd6f336d08340583bd620a7f5694c90}{ERROR}} = 404
+ \}
+\begin{DoxyCompactList}\small\item\em Перечисление статусов и количество корней уравнения. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots}} \doxymbox{\hyperlink{main_8h_a35a46daa92bc2deb79a451fceb1358a1}{solve\+\_\+quadratic\+\_\+equations}} (const double a, const double b, const double c, double \texorpdfstring{$\ast$}{*}x1, double \texorpdfstring{$\ast$}{*}x2)
+\begin{DoxyCompactList}\small\item\em Главная функция-\/диспетчер для решения квадратного уравнения \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots}} \doxymbox{\hyperlink{main_8h_a08ee7da9f96dcf09a87e9a7ff66e91a6}{solve\+\_\+linear}} (const double b, const double c, double \texorpdfstring{$\ast$}{*}x1)
+\begin{DoxyCompactList}\small\item\em Функция для решения уравнений линейного вида. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots}} \doxymbox{\hyperlink{main_8h_a9b07eb42073218b87e870c8695687cf0}{solve\+\_\+square}} (const double a, const double b, const double c, double \texorpdfstring{$\ast$}{*}x1, double \texorpdfstring{$\ast$}{*}x2)
+\begin{DoxyCompactList}\small\item\em Функция для решения уравнений квадратного вида. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{main_8h_af45aa666fa6057be09f8e03356e0d736}{is\+\_\+zero}} (const double val)
+\begin{DoxyCompactList}\small\item\em Проверяет равно ли число 0 с учетом погрешности EPS. \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{main_8h_a7842bdf8067fd0df7f83441156b216ab}{find\+\_\+discriminant}} (const double a, const double b, const double c)
+\begin{DoxyCompactList}\small\item\em Подсчитывает дискриминант квадратного уравнения. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{main_8h_a487a10093842cef57db6c158c1b9b48f}{print\+\_\+root}} (const double x1, const double x2, const \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots}} n\+Root)
+\begin{DoxyCompactList}\small\item\em Выводит результат работы программы, с учетом кол-\/ва корней. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{main_8h_a2b0769b623a6a6c76c8a4e87e6afdeae}{clear\+\_\+the\+\_\+buffer}} ()
+\begin{DoxyCompactList}\small\item\em Очищает поле ввода если пользователь ввел мусор. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{main_8h_a94345c0a7c0d1d1e7de2258a72694d69}{scanСoefficient}} (double \texorpdfstring{$\ast$}{*}a, double \texorpdfstring{$\ast$}{*}b, double \texorpdfstring{$\ast$}{*}c, int \texorpdfstring{$\ast$}{*}scan\+Count)
+\begin{DoxyCompactList}\small\item\em Ввод коэффициентов уравнения. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Программа для решения квадратных и линейных уравнений. 
+
+Включает считывание коэффициентов с клавиатуры, очистку буфера ввода, вычисление дискриминанта и обработку всех частных случаев (включая равенство нулю). 
+
+\label{main_8h_doc-define-members}
+\Hypertarget{main_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{main_8h_a6ebf6899d6c1c8b7b9d09be872c05aae}\index{main.h@{main.h}!EPS@{EPS}}
+\index{EPS@{EPS}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{EPS}{EPS}}
+{\footnotesize\ttfamily \label{main_8h_a6ebf6899d6c1c8b7b9d09be872c05aae} 
+\+\#define EPS~1e-\/9}
+
+
+
+Константа для сравнения чисел с плавающей точкой с нулем. 
+
+\Hypertarget{main_8h_a8c45d6ba00c88fa750cb805bc3cb7eba}\index{main.h@{main.h}!verify\_it@{verify\_it}}
+\index{verify\_it@{verify\_it}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{verify\_it}{verify\_it}}
+{\footnotesize\ttfamily \label{main_8h_a8c45d6ba00c88fa750cb805bc3cb7eba} 
+\+\#define verify\+\_\+it(\begin{DoxyParamCaption}\item[{}]{condition}{, }\item[{}]{message}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}(!(condition))\{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ printf(message);\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ abort();\(\backslash\)}
+\DoxyCodeLine{\}\(\backslash\)}
+
+\end{DoxyCode}
+
+
+Отлов ошибок пользователя. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em condition} & Проверяемое условие. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em message} & Сообщение об ошибке. \\
+\hline
+\end{DoxyParams}
+
+
+\label{main_8h_doc-enum-members}
+\Hypertarget{main_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}\index{main.h@{main.h}!roots@{roots}}
+\index{roots@{roots}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{roots}{roots}}
+{\footnotesize\ttfamily \label{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c} 
+enum \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots}}}
+
+
+
+Перечисление статусов и количество корней уравнения. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ZERO@{ZERO}!main.h@{main.h}}
+\index{main.h@{main.h}!ZERO@{ZERO}}
+}\Hypertarget{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3cae117e3533122c80b262257b49b21cddf}\label{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3cae117e3533122c80b262257b49b21cddf} 
+ZERO&Уравнение не имеет решений. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ONE@{ONE}!main.h@{main.h}}
+\index{main.h@{main.h}!ONE@{ONE}}
+}\Hypertarget{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3ca7a725f13af144bdef532d0389ba75e0d}\label{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3ca7a725f13af144bdef532d0389ba75e0d} 
+ONE&Уравнение имеет 1 решение. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TWO@{TWO}!main.h@{main.h}}
+\index{main.h@{main.h}!TWO@{TWO}}
+}\Hypertarget{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3ca0e793500a63ffa575b9b712ca3bc9851}\label{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3ca0e793500a63ffa575b9b712ca3bc9851} 
+TWO&Уравнение имеет 2 решения. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INF@{INF}!main.h@{main.h}}
+\index{main.h@{main.h}!INF@{INF}}
+}\Hypertarget{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3ca2e6059d72d8fde88f3127eb147e4eff8}\label{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3ca2e6059d72d8fde88f3127eb147e4eff8} 
+INF&Уравнение имеет бесконечное кол-\/во корней. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR@{ERROR}!main.h@{main.h}}
+\index{main.h@{main.h}!ERROR@{ERROR}}
+}\Hypertarget{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3ca2fd6f336d08340583bd620a7f5694c90}\label{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3ca2fd6f336d08340583bd620a7f5694c90} 
+ERROR&Деление на 0. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{main_8h_doc-func-members}
+\Hypertarget{main_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8h_a2b0769b623a6a6c76c8a4e87e6afdeae}\index{main.h@{main.h}!clear\_the\_buffer@{clear\_the\_buffer}}
+\index{clear\_the\_buffer@{clear\_the\_buffer}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{clear\_the\_buffer()}{clear\_the\_buffer()}}
+{\footnotesize\ttfamily \label{main_8h_a2b0769b623a6a6c76c8a4e87e6afdeae} 
+void clear\+\_\+the\+\_\+buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Очищает поле ввода если пользователь ввел мусор. 
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{main_8h_a2b0769b623a6a6c76c8a4e87e6afdeae_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main_8h_a7842bdf8067fd0df7f83441156b216ab}\index{main.h@{main.h}!find\_discriminant@{find\_discriminant}}
+\index{find\_discriminant@{find\_discriminant}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{find\_discriminant()}{find\_discriminant()}}
+{\footnotesize\ttfamily \label{main_8h_a7842bdf8067fd0df7f83441156b216ab} 
+double find\+\_\+discriminant (\begin{DoxyParamCaption}\item[{const double}]{a}{, }\item[{const double}]{b}{, }\item[{const double}]{c}{}\end{DoxyParamCaption})}
+
+
+
+Подсчитывает дискриминант квадратного уравнения. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em a} & Коэффициент при x\texorpdfstring{$^\wedge$}{\string^}2. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em b} & Коэффициент при x. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em c} & Свободный член. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+дискриминант данного уравнения. 
+\end{DoxyReturn}
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{main_8h_a7842bdf8067fd0df7f83441156b216ab_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main_8h_af45aa666fa6057be09f8e03356e0d736}\index{main.h@{main.h}!is\_zero@{is\_zero}}
+\index{is\_zero@{is\_zero}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{is\_zero()}{is\_zero()}}
+{\footnotesize\ttfamily \label{main_8h_af45aa666fa6057be09f8e03356e0d736} 
+bool is\+\_\+zero (\begin{DoxyParamCaption}\item[{const double}]{val}{}\end{DoxyParamCaption})}
+
+
+
+Проверяет равно ли число 0 с учетом погрешности EPS. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em val} & Проверяемое значение. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true если число близко к 0, иначе false. 
+\end{DoxyReturn}
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=128pt]{main_8h_af45aa666fa6057be09f8e03356e0d736_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main_8h_a487a10093842cef57db6c158c1b9b48f}\index{main.h@{main.h}!print\_root@{print\_root}}
+\index{print\_root@{print\_root}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{print\_root()}{print\_root()}}
+{\footnotesize\ttfamily \label{main_8h_a487a10093842cef57db6c158c1b9b48f} 
+void print\+\_\+root (\begin{DoxyParamCaption}\item[{const double}]{x1}{, }\item[{const double}]{x2}{, }\item[{const \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots}}}]{n\+Root}{}\end{DoxyParamCaption})}
+
+
+
+Выводит результат работы программы, с учетом кол-\/ва корней. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em x1} & Первый корень уравнения. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em x2} & Второй корень уравнения. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em n\+Root} & Кол-\/во корней. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=137pt]{main_8h_a487a10093842cef57db6c158c1b9b48f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main_8h_a94345c0a7c0d1d1e7de2258a72694d69}\index{main.h@{main.h}!scanСoefficient@{scanСoefficient}}
+\index{scanСoefficient@{scanСoefficient}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{scanСoefficient()}{scanСoefficient()}}
+{\footnotesize\ttfamily \label{main_8h_a94345c0a7c0d1d1e7de2258a72694d69} 
+void scanСoefficient (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{c}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{scan\+Count}{}\end{DoxyParamCaption})}
+
+
+
+Ввод коэффициентов уравнения. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em a} & Указатель на коэффициент при x\texorpdfstring{$^\wedge$}{\string^}2. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em b} & Указатель на коэффициент при x. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em c} & Указатель на свободный член. \\
+\hline
+\doxymbox{\texttt{out}}  & {\em scan\+Count} & кол-\/во правильно считанных переменных. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{main_8h_a94345c0a7c0d1d1e7de2258a72694d69_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main_8h_a08ee7da9f96dcf09a87e9a7ff66e91a6}\index{main.h@{main.h}!solve\_linear@{solve\_linear}}
+\index{solve\_linear@{solve\_linear}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{solve\_linear()}{solve\_linear()}}
+{\footnotesize\ttfamily \label{main_8h_a08ee7da9f96dcf09a87e9a7ff66e91a6} 
+\doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots}} solve\+\_\+linear (\begin{DoxyParamCaption}\item[{const double}]{b}{, }\item[{const double}]{c}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{x1}{}\end{DoxyParamCaption})}
+
+
+
+Функция для решения уравнений линейного вида. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em b} & Коэффициент при x. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em c} & Свободный член. \\
+\hline
+\doxymbox{\texttt{out}}  & {\em x1} & Указатель для записи первого корня. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Статус решения из перечисления \doxylink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots} (INF, ERROR, ONE). 
+\end{DoxyReturn}
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{main_8h_a08ee7da9f96dcf09a87e9a7ff66e91a6_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main_8h_a35a46daa92bc2deb79a451fceb1358a1}\index{main.h@{main.h}!solve\_quadratic\_equations@{solve\_quadratic\_equations}}
+\index{solve\_quadratic\_equations@{solve\_quadratic\_equations}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{solve\_quadratic\_equations()}{solve\_quadratic\_equations()}}
+{\footnotesize\ttfamily \label{main_8h_a35a46daa92bc2deb79a451fceb1358a1} 
+\doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots}} solve\+\_\+quadratic\+\_\+equations (\begin{DoxyParamCaption}\item[{const double}]{a}{, }\item[{const double}]{b}{, }\item[{const double}]{c}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{x1}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{x2}{}\end{DoxyParamCaption})}
+
+
+
+Главная функция-\/диспетчер для решения квадратного уравнения 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em a} & Коэффициент при x\texorpdfstring{$^\wedge$}{\string^}2. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em b} & Коэффициент при x. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em c} & Свободный член. \\
+\hline
+\doxymbox{\texttt{out}}  & {\em x1} & Указатель для записи первого корня. \\
+\hline
+\doxymbox{\texttt{out}}  & {\em x2} & Указатель для записи второго корня. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Статус решения из перечисления \doxylink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots}.
+\end{DoxyReturn}
+Пример того, как использовать функцию 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ a\ =\ 0.0,\ b\ =\ 0.0,\ c\ =\ 0.0;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ x1\ =\ 0,\ x2\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots}}\ nRoot\ =\ \doxymbox{\hyperlink{main_8c_a35a46daa92bc2deb79a451fceb1358a1}{solve\_quadratic\_equations}}\ (a,\ b,\ c,\ \&x1,\ \&x2);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8h_a35a46daa92bc2deb79a451fceb1358a1_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main_8h_a9b07eb42073218b87e870c8695687cf0}\index{main.h@{main.h}!solve\_square@{solve\_square}}
+\index{solve\_square@{solve\_square}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{solve\_square()}{solve\_square()}}
+{\footnotesize\ttfamily \label{main_8h_a9b07eb42073218b87e870c8695687cf0} 
+\doxymbox{\hyperlink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots}} solve\+\_\+square (\begin{DoxyParamCaption}\item[{const double}]{a}{, }\item[{const double}]{b}{, }\item[{const double}]{c}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{x1}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{x2}{}\end{DoxyParamCaption})}
+
+
+
+Функция для решения уравнений квадратного вида. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em a} & Коэффициент при x\texorpdfstring{$^\wedge$}{\string^}2. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em b} & Коэффициент при x. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em c} & Свободный член. \\
+\hline
+\doxymbox{\texttt{out}}  & {\em x1} & Указатель для записи первого корня. \\
+\hline
+\doxymbox{\texttt{out}}  & {\em x2} & Указатель для записи второго корня. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Статус решения из перечисления \doxylink{main_8h_ac6a66a418b6646df5aa3c82d9fb39d3c}{roots} (ZERO, ONE, TWO). 
+\end{DoxyReturn}
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{main_8h_a9b07eb42073218b87e870c8695687cf0_cgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,10 @@
+<map id="solve_square" name="solve_square">
+<area shape="rect" id="Node000001" title="Функция для решения уравнений квадратного вида." alt="" coords="5,67,104,93"/>
+<area shape="poly" id="edge5_Node000001_Node000001" title=" " alt="" coords="27,67,22,58,26,48,37,42,55,40,74,43,85,51,80,52,72,48,54,45,38,47,30,52,28,57,32,66"/>
+<area shape="rect" id="Node000002" href="$main_8c.html#a7842bdf8067fd0df7f83441156b216ab" title="Подсчитывает дискриминант квадратного уравнения." alt="" coords="152,29,271,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,66,140,59,135,61,105,71"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#af45aa666fa6057be09f8e03356e0d736" title="Проверяет равно ли число 0 с учетом погрешности EPS." alt="" coords="180,104,243,131"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="104,89,167,105,162,107,104,94"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="184,28,179,21,183,11,194,5,211,3,230,5,242,14,236,14,229,10,211,8,195,10,187,15,185,20,189,30"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="184,102,179,95,183,86,194,80,211,77,230,80,242,89,236,88,229,85,211,83,195,85,187,89,185,95,189,105"/>
+</map>

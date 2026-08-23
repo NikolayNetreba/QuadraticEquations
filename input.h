@@ -1,4 +1,5 @@
-#pragma once
+#ifndef INPUT_H
+#define INPUT_H
 
 #include "colors.h"
 #include "calc.h"
@@ -33,5 +34,5 @@ opStatus read_from_file(double *a, double *b, double *c, FILE *file);
 int check_and_clear_buffer(void);
 void clear_buffer(void);
 void handle_op_status(const double a, const double b, const double c, opStatus* state);
-
+#endif
 

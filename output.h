@@ -1,4 +1,5 @@
-#pragma once
+#ifndef OUTPUT_H
+#define OUTPUT_H
 
 #include <stdio.h>
 #include "calc.h"
@@ -9,3 +10,4 @@
 */
 void print_root(const double x1, const double x2, const roots nRoot);
 
+#endif

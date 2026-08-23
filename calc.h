@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CALC_H
+#define CALC_H
 
 #include <assert.h>
 #include <math.h>
@@ -14,11 +15,10 @@
  @brief Перечисление статусов и количество корней уравнения.
 */
 typedef enum {
-    ZERO_ROOTS = 0,    ///< Уравнение не имеет решений.
+    NO_ROOTS = 0,    ///< Уравнение не имеет решений.
     ONE_ROOT = 1,      ///< Уравнение имеет 1 решение.
     TWO_ROOTS = 2,     ///< Уравнение имеет 2 решения.
-    INF_ROOTS = 200,   ///< Уравнение имеет бесконечное кол-во корней.
-    ERROR_ROOTS = 404, ///< Деление на 0.
+    INF_ROOTS = -1,   ///< Уравнение имеет бесконечное кол-во корней.
 } roots;
 
 /**
@@ -52,4 +52,6 @@ bool is_zero (const double val);
 */
 double find_discriminant (const double a, const double b, const double c);
 
+bool is_equal(double a, double b);
+#endif
 

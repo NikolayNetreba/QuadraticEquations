@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COLORS_H
+#define COLORS_H
 // цвета для консоли
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
@@ -14,4 +15,4 @@
 #define MAKE_BLUE(A)    BLUE A RESET
 #define MAKE_MAGENTA(A) MAGENTA A RESET
 #define MAKE_CYAN(A)    CYAN A RESET
-
+#endif

@@ -1,32 +1,40 @@
 #include "tests.h"
 
-int main() {
+void start_tests() {
     FILE *file = scan_file_name();
     do_unit_tests(file);
 
     int range = 0;
-    Choose_value(&range, "Range");
+    choose_value(&range, "Range");
     int test_count = 0;
-    Choose_value(&test_count, "Number of repetitions");
+    choose_value(&test_count, "Number of repetitions");
+
     do_stress_tests(range, test_count);
 }
 
-void Choose_value(int *value, const char *message){
+void choose_value(int *value, const char *message) {
+    assert(value != NULL);
+    assert(message != NULL);
+
     int countScanf = 0;
-    do{
-    printf(MAKE_YELLOW("Choose the %s: "), message);
-    countScanf = scanf("%d", value);
-    if (countScanf != 1){
-        printf(MAKE_RED("insufficient variables entered, do it again.\n")"-------------------------------------------------\n");
-        clear_buffer();
-    }
+    do {
+        printf(MAKE_YELLOW("Choose the %s: "), message);
+        countScanf = scanf("%d", value);
+        if (countScanf != 1) {
+            printf(MAKE_RED("insufficient variables entered, do it again.\n")LINE);
+            clear_buffer();
+        }
     } while(countScanf != 1);
 }
 
-bool check_stress_tests(const double a, const double b, const double c, const double x1, const double x2, const roots nRoots) {
+bool check_stress_tests(coeff eqCoeff, EqRoots rootsOfEq) {
     bool result = false;
-    double disc = find_discriminant(a, b, c);
-    switch(nRoots){
+    double a = eqCoeff.a, b = eqCoeff.b, c = eqCoeff.c;
+    double x1 = rootsOfEq.x1, x2 = rootsOfEq.x2;
+    int nRoots = rootsOfEq.nRoots;
+
+    double disc = find_discriminant(eqCoeff);
+    switch(nRoots) {
         case NO_ROOTS:
             result = (is_zero(a) && is_zero(b) && !is_zero(c)) || (disc < 0);
             break;
@@ -42,86 +50,94 @@ bool check_stress_tests(const double a, const double b, const double c, const do
         default:
             break;
     };
+
     return result;
 }
 
-void print_stress_test_result(int index, double a, double b, double c, double x1, double x2,roots nRoots, int success) {
+void print_stress_test_result(int index, coeff eqCoeff, EqRoots rootsOfEq, int success) {
     if (success) {
             printf(MAKE_GREEN("%d Unit test passed\n"), index);
     } else {
-        printf("-------------------------------------------------\n"
+        printf(LINE
                 MAKE_RED("%d Unit test FAILED: ") "a = %lg, b = %lg, c = %lg,\n"
                 MAKE_BLUE("Got: ") "%d roots, x1 = %lg, x2 = %lg\n"
-                "-------------------------------------------------\n",
-                index, a, b, c, nRoots, x1, x2);
+                LINE,
+                index, eqCoeff.a, eqCoeff.b, eqCoeff.c,
+                rootsOfEq.nRoots, rootsOfEq.x1, rootsOfEq.x2);
     }
 }
 
-void do_stress_tests(const int range, const int count){
-    for (int i = 0; i < count;  ++i){
-        int a = rand() % range - (range / 2);
-        int b = rand() % range - (range / 2);
-        int c = rand() % range - (range / 2);
+void do_stress_tests(const int range, const int count) {
+    for (int i = 0; i < count;  ++i) {
+        coeff eqCoeff = {
+            .a = (double)(rand() % range - (range / 2)),
+            .b = (double)(rand() % range - (range / 2)),
+            .c = (double)(rand() % range - (range / 2)),
+        };
+        EqRoots rootsOfEq = {};
 
-        double x1 = 0, x2 = 0;
-        roots nRoots = solve_quadratic_equations(a, b, c, &x1, &x2);
-        bool result = check_stress_tests(a, b, c, x1, x2, nRoots);
-        print_stress_test_result(i, a, b, c, x1, x2, nRoots, result);
+        rootsOfEq.nRoots = solve_quadratic_equations(eqCoeff, &rootsOfEq);
+
+        bool result = check_stress_tests(eqCoeff, rootsOfEq);
+        print_stress_test_result(i, eqCoeff, rootsOfEq, result);
     }
 }
 
-opStatus read_from_unit_tests(double *a, double *b, double *c, int *nRootsRef,
-                              double *x1Ref, double *x2Ref, FILE *file) {
-    assert(a != NULL);
-    assert(b != NULL);
-    assert(c != NULL);
-    assert(nRootsRef != NULL);
-    assert(x1Ref != NULL);
-    assert(x2Ref != NULL);
+opStatus read_from_unit_tests(coeff *eqCoeff, EqRoots *RefRootsOfEq, FILE *file) {
+    assert(eqCoeff != NULL);
+    assert(RefRootsOfEq != NULL);
     assert(file != NULL && "Path is null");
 
-    int scanCount = fscanf(file, "%lf%lf%lf%d%lf%lf", a, b, c, nRootsRef, x1Ref, x2Ref);
-    return to_process_scan_count(scanCount);
+    int scanCount = fscanf(file, "%lf%lf%lf%d%lf%lf", &(eqCoeff->a), &(eqCoeff->b), &(eqCoeff->c),
+                                                (int*)&(RefRootsOfEq->nRoots),
+                                                &(RefRootsOfEq->x1), &(RefRootsOfEq->x2));
+
+    return process_scan_count(scanCount);
 }
 
-opStatus to_process_scan_count(int scanCount){
+opStatus process_scan_count(int scanCount) {
     if (scanCount == END_SCAN_COUNT) {
         printf(MAKE_CYAN("Unit tests completed.\n"));
         return OP_STATUS_EXIT;
     }
     if (scanCount != FILE_SCAN_COUNT) {
         printf(MAKE_RED("insufficient variables entered, do it again.\n")
-        "-------------------------------------------------\n");
+        LINE);
         clear_buffer();
         return OP_STATUS_DO_IT_AGAIN;
     }
+
     return OP_STATUS_OK;
 }
 
-bool is_success(double x1, double x2, double x1Ref, double x2Ref, roots nRoots, int nRootsRef){
-    bool success = (nRoots == nRootsRef);
-    if (success && nRoots == 2) {
-            success = ((is_equal(x1, x1Ref) && is_equal(x2, x2Ref)) ||
-                       (is_equal(x1, x2Ref) && is_equal(x2, x1Ref)));
-        } else if (success && nRoots == 1) {
-            success = is_equal(x1, x1Ref);
+bool is_success(EqRoots RootsOfEq, EqRoots RefRootsOfEq) {
+    bool success = (RootsOfEq.nRoots == RefRootsOfEq.nRoots);
+    if (!success){
+        return success;
+    }
+    if (RootsOfEq.nRoots == 2) {
+        success = ((is_equal(RootsOfEq.x1, RefRootsOfEq.x1) && is_equal(RootsOfEq.x2, RefRootsOfEq.x2)) ||
+                   (is_equal(RootsOfEq.x1, RefRootsOfEq.x2) && is_equal(RootsOfEq.x2, RefRootsOfEq.x1)));
+        } else if (RootsOfEq.nRoots == 1) {
+            success = is_equal(RootsOfEq.x1, RefRootsOfEq.x1);
     }
 
     return success;
 }
 
-void print_unit_result(int index, double a, double b, double c, int nRootsRef,
-                  double x1Ref, double x2Ref, roots nRoots, double x1,
-                  double x2, int success) {
+void print_unit_result(int index, coeff eqCoeff, EqRoots RefRootsOfEq,
+                       EqRoots RootsOfEq, int success) {
     if (success) {
             printf(MAKE_GREEN("%d Unit test passed\n"), index);
     } else {
-        printf("-------------------------------------------------\n"
+        printf(LINE
                 MAKE_RED("%d Unit test FAILED: ") "a = %lg, b = %lg, c = %lg,\n"
                 MAKE_YELLOW("Expected: ") "%d roots, x1 = %lg, x2 = %lg,\n"
                 MAKE_BLUE("Got: ") "%d roots, x1 = %lg, x2 = %lg\n"
-                "-------------------------------------------------\n",
-                index, a, b, c, nRootsRef, x1Ref, x2Ref, nRoots, x1, x2);
+                LINE,
+                index, eqCoeff.a, eqCoeff.b, eqCoeff.c,
+                RefRootsOfEq.nRoots, RefRootsOfEq.x1, RefRootsOfEq.x2,
+                RootsOfEq.nRoots, RootsOfEq.x1, RootsOfEq.x2);
     }
 }
 
@@ -130,23 +146,22 @@ void do_unit_tests(FILE *file) {
     int index = 0;
     do {
         index++;
-        double a = 0, b = 0, c = 0, x1 = 0, x2 = 0, x1Ref = 0, x2Ref = 0;
-        int nRootsRef = 0;
-        roots nRoots = NO_ROOTS;
+        coeff eqCoeff = {};
+        EqRoots RefRootsOfEq = {}, RootsOfEq = {};
 
-        state = read_from_unit_tests(&a, &b, &c, &nRootsRef, &x1Ref, &x2Ref, file);
+        state = read_from_unit_tests(&eqCoeff, &RefRootsOfEq, file);
 
-        if (state == OP_STATUS_EXIT){
+        if (state == OP_STATUS_EXIT) {
             break;
         }
-        if (state == OP_STATUS_DO_IT_AGAIN){
+        if (state == OP_STATUS_DO_IT_AGAIN) {
             continue;
         }
 
-        nRoots = solve_quadratic_equations(a, b, c, &x1, &x2);
-        bool success = is_success(x1, x2, x1Ref, x2Ref, nRoots, nRootsRef);
+        RootsOfEq.nRoots = solve_quadratic_equations(eqCoeff, &RootsOfEq);
+        bool success = is_success(RootsOfEq, RefRootsOfEq);
 
-        print_unit_result(index, a, b, c, nRootsRef, x1Ref, x2Ref, nRoots, x1, x2, success);
+        print_unit_result(index, eqCoeff, RefRootsOfEq, RootsOfEq, success);
     } while (state != OP_STATUS_EXIT);
 
     fclose(file);

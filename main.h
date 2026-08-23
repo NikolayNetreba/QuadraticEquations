@@ -5,13 +5,14 @@
  вычисление дискриминанта и обработку всех частных случаев (включая равенство нулю).
 */
 
+#include <stdlib.h>
+#include <windows.h>
 #include "colors.h"
+#include "structures.h"
 #include "calc.h"
 #include "input.h"
 #include "output.h"
-#include <stdlib.h>
-#include <windows.h>
-
+#include "tests.h"
 
 /**
  @brief Отлов ошибок пользователя.

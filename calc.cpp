@@ -1,43 +1,46 @@
 #include "calc.h"
 
-bool is_zero(const double val) { return fabs(val) < EPS; }
+roots solve_quadratic_equations(coeff eqCoeff, EqRoots *rootsOfEq) {
+  assert(rootsOfEq != NULL);
+  assert(&(rootsOfEq->x1) != &(rootsOfEq->x2));
 
-roots solve_quadratic_equations(const double a, const double b, const double c,
-                                double *x1, double *x2) {
-  assert(x1 != NULL);
-  assert(x2 != NULL);
-  assert(x1 != x2);
-
-  if (is_zero(a)) {
-    return solve_linear(b, c, x1);
+  if (is_zero(eqCoeff.a)) {
+    return solve_linear(eqCoeff, rootsOfEq);
   } else {
-    return solve_square(a, b, c, x1, x2);
+    return solve_square(eqCoeff, rootsOfEq);
   }
 }
 
-roots solve_linear(const double b, const double c, double *x1) {
-  assert(x1 != NULL);
+roots solve_linear(coeff eqCoeff, EqRoots *rootsOfEq) {
+  assert(rootsOfEq != NULL);
 
-  if (is_zero(b) && is_zero(c)) {
+  if (is_zero(eqCoeff.b) && is_zero(eqCoeff.c)) {
     return INF_ROOTS;
   }
 
-  if (is_zero(b)) {
+  if (is_zero(eqCoeff.b)) {
     return NO_ROOTS;
   }
 
-  *x1 = -c / b + 0.0;
+  rootsOfEq->x1 = -eqCoeff.c / eqCoeff.b + 0.0;
+
   return ONE_ROOT;
+}
+
+bool is_zero(const double val) {
+  return fabs(val) < EPS;
 }
 
 bool is_equal(double a, double b) {
     return is_zero(fabs(a - b));
 }
 
-roots solve_square(const double a, const double b, const double c, double *x1,
-                   double *x2) {
-  assert(x1 != NULL);
-  assert(x2 != NULL);
+roots solve_square(coeff eqCoeff, EqRoots *rootsOfEq) {
+  assert(rootsOfEq != NULL);
+
+  double *x1 = &(rootsOfEq->x1), *x2 = &(rootsOfEq->x2);
+  double a = eqCoeff.a, b = eqCoeff.b, c = eqCoeff.c;
+
   assert(x1 != x2);
 
   if (is_zero(c)) {
@@ -48,7 +51,7 @@ roots solve_square(const double a, const double b, const double c, double *x1,
     return TWO_ROOTS;
   }
 
-  double disc = find_discriminant(a, b, c);
+  double disc = find_discriminant(eqCoeff);
   if (disc > 0) {
     double sqDisc = sqrt(disc);
     *x1 = (-b + sqDisc) / (2 * a);
@@ -59,13 +62,12 @@ roots solve_square(const double a, const double b, const double c, double *x1,
     *x1 = -b / (2 * a) + 0.0;
     return ONE_ROOT;
   }
+
   return NO_ROOTS;
 }
 
-
-
-double find_discriminant(const double a, const double b, const double c) {
-  return b * b - 4 * a * c + 0.0;
+double find_discriminant(coeff eqCoeff) {
+  return eqCoeff.b * eqCoeff.b - 4 * eqCoeff.a * eqCoeff.c + 0.0;
 }
 
 

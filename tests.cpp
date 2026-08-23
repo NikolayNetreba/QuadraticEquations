@@ -118,7 +118,7 @@ bool is_success(EqRoots RootsOfEq, EqRoots RefRootsOfEq) {
     if (RootsOfEq.nRoots == 2) {
         success = ((is_equal(RootsOfEq.x1, RefRootsOfEq.x1) && is_equal(RootsOfEq.x2, RefRootsOfEq.x2)) ||
                    (is_equal(RootsOfEq.x1, RefRootsOfEq.x2) && is_equal(RootsOfEq.x2, RefRootsOfEq.x1)));
-        } else if (RootsOfEq.nRoots == 1) {
+    } else if (RootsOfEq.nRoots == 1) {
             success = is_equal(RootsOfEq.x1, RefRootsOfEq.x1);
     }
 
@@ -137,11 +137,12 @@ void print_unit_result(int index, coeff eqCoeff, EqRoots RefRootsOfEq,
                 LINE,
                 index, eqCoeff.a, eqCoeff.b, eqCoeff.c,
                 RefRootsOfEq.nRoots, RefRootsOfEq.x1, RefRootsOfEq.x2,
-                RootsOfEq.nRoots, RootsOfEq.x1, RootsOfEq.x2);
+                   RootsOfEq.nRoots,    RootsOfEq.x1,    RootsOfEq.x2);
     }
 }
 
 void do_unit_tests(FILE *file) {
+    //TODO - as
     opStatus state = OP_STATUS_EXIT;
     int index = 0;
     do {

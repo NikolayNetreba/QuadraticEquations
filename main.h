@@ -19,9 +19,9 @@
  @param [in] condition Проверяемое условие.
  @param [in] message Сообщение об ошибке.
 */
-#define verify_it(condition, message) \
-    if (!(condition)) { \
-        printf(message); \
+#define verify_it(condition, message)\
+    if(!(condition)){ \
+        printf(stderr, "file: %s, lint: %d, fall: %s", __FILE__, __LINE__, message);\
         abort(); \
     }
 

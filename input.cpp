@@ -48,7 +48,7 @@ opStatus input_coefficients(coeff* eqCoeff) {
       return OP_STATUS_EXIT;
     }
     default: {
-      assert(0 && "Visited default, but didn't have to");
+      assert("Visited default, but didn't have to" && 0);
       return OP_STATUS_IMPOSSIBLE;
     }
   }
@@ -112,7 +112,7 @@ FILE *scan_file_name() {
 
     file = fopen(fileName, "r");
     if (file == NULL) {
-      printf(MAKE_RED("File not found or cannot be opened!\n")LINE);
+      printf(MAKE_RED("File not found or cannot be opened!\n")LINE); // errno
     }
   } while (file == NULL);
 

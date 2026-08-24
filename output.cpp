@@ -16,5 +16,7 @@ void print_root(EqRoots rootsOfEq) {
     break;
   default:
     printf(MAKE_RED("IDK\n")LINE);
+    assert("Visited default, but didn't have to" && 0);
+    break;
   }
 }

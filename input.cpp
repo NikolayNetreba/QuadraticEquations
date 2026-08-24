@@ -17,9 +17,10 @@ void handle_op_status(coeff eqCoeff, opStatus* state) {
     start_tests();
     break;
   case OP_STATUS_IMPOSSIBLE:
-  default:
     printf(MAKE_RED("OP_IMPOSSIBLE\n"));
     break;
+  default:
+    assert("Visited default, but didn't have to" && 0);
   }
   *state = OP_STATUS_DO_IT_AGAIN;
 }
@@ -111,8 +112,10 @@ FILE *scan_file_name() {
     }
 
     file = fopen(fileName, "r");
-    if (file == NULL) {
-      printf(MAKE_RED("File not found or cannot be opened!\n")LINE); // errno
+    if (file == NULL){
+      fprintf(stderr, MAKE_RED("Error opening file: ")"%s: ", fileName);
+      perror("");
+      fprintf(stderr, LINE);
     }
   } while (file == NULL);
 

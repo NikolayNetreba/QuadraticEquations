@@ -31,6 +31,7 @@ double is_it_dot(double a, double b, double c, double x){
 }
 
 int main(){
+    printf("ghfh");
     verify_it(0, "hi");
 
 

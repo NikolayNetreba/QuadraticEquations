@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <stddef.h>
+#include <errno.h>
 #include "structures.h"
 #include "colors.h"
 #include "output.h"

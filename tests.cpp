@@ -48,6 +48,7 @@ bool check_stress_tests(coeff eqCoeff, EqRoots rootsOfEq) {
             result = (is_zero(a) && is_zero(b) && is_zero(c));
             break;
         default:
+            assert("Visited default, but didn't have to" && 0);
             break;
     };
 

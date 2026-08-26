@@ -1,4 +1,4 @@
-//#include <TXLib.h>
+#include <TXLib.h>
 #include <stdio.h>
 #include <errno.h>
 #include <stdlib.h>
@@ -31,8 +31,14 @@ double is_it_dot(double a, double b, double c, double x){
 }
 
 int main(){
-    printf("ghfh");
-    verify_it(0, "hi");
+    txCreateWindow (600, 600);
+    txClearConsole()
+    double a = 1, b = 0, c = 0;
+    for (double x = -2; x < 6; x += 0.00001){
+        double y = is_it_dot(a, b, c, x);
+
+        txSetPixel(x * 10 + 300, -y * 10 + 300, RGB(255, 120, 0));
+    }
 
 
 }

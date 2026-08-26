@@ -80,9 +80,9 @@ void choose_option(opChoose *op) {
   do {
     scan_op(op);
     sumOfChar = check_and_clear_buffer();
-  if (sumOfChar != 0) {
-    printf(MAKE_RED("Try it again: "));
-  }
+    if (sumOfChar != 0) {
+      printf(MAKE_RED("Try it again: "));
+    }
   } while (sumOfChar != 0);
 }
 

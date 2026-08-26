@@ -22,8 +22,8 @@ void choose_value(int *value, const char *message) {
         countScanf = scanf("%d", value);
         if (countScanf != 1) {
             printf(MAKE_RED("insufficient variables entered, do it again.\n")LINE);
-            clear_buffer();
         }
+        clear_buffer();
     } while(countScanf != 1);
 }
 
@@ -144,6 +144,7 @@ void print_unit_result(int index, coeff eqCoeff, EqRoots RefRootsOfEq,
 
 void do_unit_tests(FILE *file) {
     assert(file != NULL);
+
     opStatus state = OP_STATUS_EXIT;
     int index = 0;
     do {

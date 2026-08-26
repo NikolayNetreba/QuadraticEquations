@@ -1,50 +1,54 @@
-#include <TXLib.h>
-=======
-#define WIN32_LEAN_AND_MEAN
+#define TX_COMPILED
 #include "TXLib.h"
->>>>>>> f94cdf3d0fd9a02ae201b3202c25e4cde55a4c08
 #include <stdio.h>
-#include <errno.h>
-#include <stdlib.h>
-#include <math.h>
+#include <assert.h>
 
-#include "structures.h"
-#include "colors.h"
-// #define NDEBUG
+#define EPS 1e-9
 
-#ifdef NDEBUG
-#define verify_it(condition, message) ((void)0)
-#else
-#define verify_it(condition, message) \
-        if (!(condition)){\
-        printf(MAKE_YELLOW("%s: %d")" %s\n", __FILE__, __LINE__, message);\
-        abort();\
+#define verify_it(condition, message)\
+        if(!(condition)){\
+            printf(stderr, "file: %s, lint: %d, fall: %s", __FILE__, __LINE__, message);\
         }
-#endif
-
-bool is_zero(const double val) {
-  return fabs(val) < EPS;
-}
-
-bool is_equal(double a, double b) {
-    return is_zero(fabs(a - b));
-}
 
 double is_it_dot(double a, double b, double c, double x){
     return a*x*x + b*x + c;
 }
 
-int main(){
-    txCreateWindow (600, 600);
-    txClearConsole()
-    double a = 1, b = 0, c = 0;
-    for (double x = -2; x < 6; x += 0.00001){
-        double y = is_it_dot(a, b, c, x);
+bool is_zero(const double val) {
+  return fabs(val) < EPS;
+}
 
-        txSetPixel(x * 10 + 300, -y * 10 + 300, RGB(255, 120, 0));
+void calculate_scale(double xv, double yv, double pX, double pY, double* scaleX, double* scaleY) {
+    double maxX = pX * 0.5;
+    double maxY = pY * 0.5;
+
+    if (!is_zero(fabs(xv))) {
+        *scaleX = maxX / fabs(xv);
     }
 
+    if (!is_zero(fabs(yv))) {
+        *scaleY = maxY / fabs(yv);
+    }
+}
 
+int main(){
+    double a = 1, b = 100, c = 10000;
+    double xv = -b / (2 * a), yv = is_it_dot(a, b, c, xv);
+    POINT sizeOfWindow = txGetExtent();
+    double pX = sizeOfWindow.x / 2, pY  = sizeOfWindow.y / 2;
+    double scaleX = 1.0;
+    double scaleY = 1.0;
+    calculate_scale(xv, yv, pX, pY, &scaleX, &scaleY);
+    txCreateWindow(sizeOfWindow.x, sizeOfWindow.y);
+    txClearConsole();
+    txSetColor(TX_WHITE, 1);
+    txLine(0, pY, sizeOfWindow.x, pY);
+    txLine(pX, 0, pX, sizeOfWindow.y);
+
+    for(double x = -pX; x < pX; x += 0.01){
+        double y = is_it_dot(a, b, c, x);
+        txSetPixel(x * scaleX + pX, -y * scaleY + pY, RGB(0, 191, 255));
+    }
 }
 
 

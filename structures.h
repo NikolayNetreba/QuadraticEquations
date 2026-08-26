@@ -28,7 +28,7 @@ struct EqRoots {
 };
 
 typedef enum {
-    OP_STATUS_EXIT = 400,
+    OP_STATUS_EXIT = 400,//TODO
     OP_STATUS_OK = 0,
     OP_STATUS_TEST = 100,
     OP_STATUS_IMPOSSIBLE = 500,

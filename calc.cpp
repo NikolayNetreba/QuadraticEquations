@@ -22,7 +22,7 @@ roots solve_linear(coeff eqCoeff, EqRoots *rootsOfEq) {
     return NO_ROOTS;
   }
 
-  rootsOfEq->x1 = -eqCoeff.c / eqCoeff.b + 0.0;
+  rootsOfEq->x1 = -eqCoeff.c / eqCoeff.b + 0.0; // -0.0 + 0.0 = 0.0
 
   return ONE_ROOT;
 }
@@ -52,15 +52,15 @@ roots solve_square(coeff eqCoeff, EqRoots *rootsOfEq) {
   }
 
   double disc = find_discriminant(eqCoeff);
+  if (is_zero(disc)) {
+    *x1 = -b / (2 * a) + 0.0;
+    return ONE_ROOT;
+  }
   if (disc > 0) {
     double sqDisc = sqrt(disc);
     *x1 = (-b + sqDisc) / (2 * a);
     *x2 = (-b - sqDisc) / (2 * a);
     return TWO_ROOTS;
-  }
-  if (is_zero(disc)) {
-    *x1 = -b / (2 * a) + 0.0;
-    return ONE_ROOT;
   }
 
   return NO_ROOTS;

@@ -1,4 +1,8 @@
 #include <TXLib.h>
+=======
+#define WIN32_LEAN_AND_MEAN
+#include "TXLib.h"
+>>>>>>> f94cdf3d0fd9a02ae201b3202c25e4cde55a4c08
 #include <stdio.h>
 #include <errno.h>
 #include <stdlib.h>

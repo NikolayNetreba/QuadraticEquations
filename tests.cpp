@@ -143,7 +143,7 @@ void print_unit_result(int index, coeff eqCoeff, EqRoots RefRootsOfEq,
 }
 
 void do_unit_tests(FILE *file) {
-    //TODO - as
+    assert(file != NULL);
     opStatus state = OP_STATUS_EXIT;
     int index = 0;
     do {

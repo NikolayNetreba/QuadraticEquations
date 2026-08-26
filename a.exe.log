@@ -2,131 +2,26 @@
 --------------------------------------------------
 TXLib соболезнует...
 
-Программа: C:\Users\nnetr\projects\a.exe, файл: C:\Users\nnetr\Downloads\TX\TXLib.h, строка: 13652, функция: bool {anonymous}::TX::txSetPixel(double, double, COLORREF, HDC),
+Программа: D:\C\QuadraticEquations\a.exe,
 
-Сообщение: Окно рисования не создано или не в порядке.
-Если вы указали параметр "dc", то он неверен.
-
-#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF79EAC57D0 (64-bit), Flags: Cmdre0, Thread: 0x648C (Main), GetLastError(): 13 (Недопустимые данные). 
-
---------------------------------------------------
-Стек вызовов:
-
-# 0 0x00007FF79EA8BEB5 in C:\Users\nnetr\projects\a.exe: (anonymous namespace)::TX::_txError()
-# 1 0x00007FF79EA95BD4 in C:\Users\nnetr\projects\a.exe: (anonymous namespace)::TX::txSetPixel()
-# 2 0x00007FF79EAA175B in C:\Users\nnetr\projects\a.exe: main()
-
-TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
-
---------------------------------------------------
-Developed with:
-
-The Dumb Artist Library (TX Library)
-TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
-Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
-See license on: http://txlib.ru
-
-TXLib file:	C:\Users\nnetr\Downloads\TX\TXLib.h
-Compiled:	Aug 24 2026 19:54:34, GNU g++ 16.1.0, std=202002L, MinGW-W64 Runtime 15.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
-Started:	Aug 24 2026 19:54:55
-
-Run file:	C:\Users\nnetr\projects\a.exe
-Directory:	C:\Users\nnetr\projects
-
---------------------------------------------------
-
---------------------------------------------------
-TXLib соболезнует...
-
-Программа: C:\Users\nnetr\projects\a.exe, файл: C:\Users\nnetr\Downloads\TX\TXLib.h, строка: 13642, функция: bool {anonymous}::TX::txClear(HDC),
-
-Сообщение: Окно рисования не создано или не в порядке.
-Если вы указали параметр "dc", то он неверен.
-
-#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF7D64C57D0 (64-bit), Flags: Cmdre0, Thread: 0x6664 (Main), GetLastError(): 13 (Недопустимые данные). 
-
---------------------------------------------------
-Стек вызовов:
-
-# 0 0x00007FF7D648BEB5 in C:\Users\nnetr\projects\a.exe: (anonymous namespace)::TX::_txError()
-# 1 0x00007FF7D64959F8 in C:\Users\nnetr\projects\a.exe: (anonymous namespace)::TX::txClear()
-# 2 0x00007FF7D64A1711 in C:\Users\nnetr\projects\a.exe: main()
-
-TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
-
---------------------------------------------------
-Developed with:
-
-The Dumb Artist Library (TX Library)
-TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
-Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
-See license on: http://txlib.ru
-
-TXLib file:	C:\Users\nnetr\Downloads\TX\TXLib.h
-Compiled:	Aug 24 2026 20:09:15, GNU g++ 16.1.0, std=202002L, MinGW-W64 Runtime 15.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
-Started:	Aug 24 2026 20:09:22
-
-Run file:	C:\Users\nnetr\projects\a.exe
-Directory:	C:\Users\nnetr\projects
-
---------------------------------------------------
-
---------------------------------------------------
-TXLib соболезнует...
-
-Программа: C:\Users\nnetr\projects\a.exe, файл: C:\Users\nnetr\Downloads\TX\TXLib.h, строка: 8956, функция: HWND__* {anonymous}::TX::txCreateWindow(double, double, bool),
-
-Сообщение: Окно рисования уже создано!
-
-#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF698ED57D0 (64-bit), Flags: CMdRe0, Thread: 0x2FD4 (Main), GetLastError(): 13 (Недопустимые данные). 
-
---------------------------------------------------
-Стек вызовов:
-
-# 0 0x00007FF698E9BEB5 in C:\Users\nnetr\projects\a.exe: (anonymous namespace)::TX::_txError()
-# 1 0x00007FF698E92FE6 in C:\Users\nnetr\projects\a.exe: (anonymous namespace)::TX::txCreateWindow()
-# 2 0x00007FF698EB17EA in C:\Users\nnetr\projects\a.exe: main()
-
-TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
-
---------------------------------------------------
-Developed with:
-
-The Dumb Artist Library (TX Library)
-TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
-Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
-See license on: http://txlib.ru
-
-TXLib file:	C:\Users\nnetr\Downloads\TX\TXLib.h
-Compiled:	Aug 24 2026 20:09:55, GNU g++ 16.1.0, std=202002L, MinGW-W64 Runtime 15.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
-Started:	Aug 24 2026 20:10:02
-
-Run file:	C:\Users\nnetr\projects\a.exe
-Directory:	C:\Users\nnetr\projects
-
---------------------------------------------------
-
---------------------------------------------------
-TXLib соболезнует...
-
-Программа: C:\Users\nnetr\projects\a.exe,
-
-ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
 
 С помощью функции signal() вы можете сами обработать эту ошибку.
 
-#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF68D1957D0 (64-bit), Flags: Cmdre0, Thread: 0x646C (Main). 
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF7293157D0 (64-bit), Flags: Cmdre0, Thread: 0x555C (Main). 
 
 --------------------------------------------------
 Стек вызовов:
 
-# 0 0x00007FF68D15BEB5 in C:\Users\nnetr\projects\a.exe: (anonymous namespace)::TX::_txError()
-# 1 0x00007FF68D15C220 in C:\Users\nnetr\projects\a.exe: (anonymous namespace)::TX::_txOnSignal()
-# 2 0x00007FFF2FF92139 in C:\WINDOWS\System32\ucrtbase.dll: raise()
-# 3 0x00007FFF2FF75261 in C:\WINDOWS\System32\ucrtbase.dll: abort()
-# 4 0x00007FF68D1716E5 in C:\Users\nnetr\projects\a.exe: main()
-
-TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+# 0 0x00007FF7292DBEB5 in D:\C\QuadraticEquations\a.exe: (anonymous namespace)::TX::_txError()
+# 1 0x00007FF7292DC220 in D:\C\QuadraticEquations\a.exe: (anonymous namespace)::TX::_txOnSignal()
+# 2 0x00007FFE4A004231 in C:\Windows\System32\ucrtbase.dll: log2f()
+# 3 0x00007FF7292F3720 in D:\C\QuadraticEquations\a.exe: __mingw_SEH_error_handler() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crt_handler.c:105
+# 4 0x00007FFE4CB55E9F in C:\Windows\SYSTEM32\ntdll.dll: _chkstk()
+# 5 0x00007FFE4CACE8C6 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+# 6 0x00007FFE4CB54E9E in C:\Windows\SYSTEM32\ntdll.dll: KiUserExceptionDispatcher()
+# 7 0x00007FF7292F16A3 in D:\C\QuadraticEquations\a.exe: calculate_scale()
+# 8 0x00007FF7292F183B in D:\C\QuadraticEquations\a.exe: main()
 
 --------------------------------------------------
 Developed with:
@@ -137,10 +32,133 @@ Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
 See license on: http://txlib.ru
 
 TXLib file:	C:\Users\nnetr\Downloads\TX\TXLib.h
-Compiled:	Aug 24 2026 20:52:11, GNU g++ 16.1.0, std=202002L, MinGW-W64 Runtime 15.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
-Started:	Aug 24 2026 20:52:18
+Compiled:	Aug 26 2026 09:24:31, GNU g++ 16.1.0, std=202002L, MinGW-W64 Runtime 15.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Aug 26 2026 09:24:38
 
-Run file:	C:\Users\nnetr\projects\a.exe
-Directory:	C:\Users\nnetr\projects
+Run file:	D:\C\QuadraticEquations\a.exe
+Directory:	D:\C\QuadraticEquations
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\C\QuadraticEquations\a.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF70B2A57D0 (64-bit), Flags: Cmdre0, Thread: 0x2758 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF70B26BEB5 in D:\C\QuadraticEquations\a.exe: (anonymous namespace)::TX::_txError()
+# 1 0x00007FF70B26C220 in D:\C\QuadraticEquations\a.exe: (anonymous namespace)::TX::_txOnSignal()
+# 2 0x00007FFE4A004231 in C:\Windows\System32\ucrtbase.dll: log2f()
+# 3 0x00007FF70B283720 in D:\C\QuadraticEquations\a.exe: __mingw_SEH_error_handler() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crt_handler.c:105
+# 4 0x00007FFE4CB55E9F in C:\Windows\SYSTEM32\ntdll.dll: _chkstk()
+# 5 0x00007FFE4CACE8C6 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+# 6 0x00007FFE4CB54E9E in C:\Windows\SYSTEM32\ntdll.dll: KiUserExceptionDispatcher()
+# 7 0x00007FF70B2816A3 in D:\C\QuadraticEquations\a.exe: calculate_scale()
+# 8 0x00007FF70B28183B in D:\C\QuadraticEquations\a.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\nnetr\Downloads\TX\TXLib.h
+Compiled:	Aug 26 2026 09:24:55, GNU g++ 16.1.0, std=202002L, MinGW-W64 Runtime 15.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Aug 26 2026 09:25:07
+
+Run file:	D:\C\QuadraticEquations\a.exe
+Directory:	D:\C\QuadraticEquations
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\C\QuadraticEquations\a.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF61F0657D0 (64-bit), Flags: Cmdre0, Thread: 0x2374 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF61F02BEB5 in D:\C\QuadraticEquations\a.exe: (anonymous namespace)::TX::_txError()
+# 1 0x00007FF61F02C220 in D:\C\QuadraticEquations\a.exe: (anonymous namespace)::TX::_txOnSignal()
+# 2 0x00007FFE4A004231 in C:\Windows\System32\ucrtbase.dll: log2f()
+# 3 0x00007FF61F043720 in D:\C\QuadraticEquations\a.exe: __mingw_SEH_error_handler() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crt_handler.c:105
+# 4 0x00007FFE4CB55E9F in C:\Windows\SYSTEM32\ntdll.dll: _chkstk()
+# 5 0x00007FFE4CACE8C6 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+# 6 0x00007FFE4CB54E9E in C:\Windows\SYSTEM32\ntdll.dll: KiUserExceptionDispatcher()
+# 7 0x00007FF61F0416A3 in D:\C\QuadraticEquations\a.exe: calculate_scale()
+# 8 0x00007FF61F04183B in D:\C\QuadraticEquations\a.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\nnetr\Downloads\TX\TXLib.h
+Compiled:	Aug 26 2026 09:31:07, GNU g++ 16.1.0, std=202002L, MinGW-W64 Runtime 15.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Aug 26 2026 09:31:14
+
+Run file:	D:\C\QuadraticEquations\a.exe
+Directory:	D:\C\QuadraticEquations
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\C\QuadraticEquations\a.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF61F0657D0 (64-bit), Flags: Cmdre0, Thread: 0x6A80 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF61F02BEB5 in D:\C\QuadraticEquations\a.exe: (anonymous namespace)::TX::_txError()
+# 1 0x00007FF61F02C220 in D:\C\QuadraticEquations\a.exe: (anonymous namespace)::TX::_txOnSignal()
+# 2 0x00007FFE4A004231 in C:\Windows\System32\ucrtbase.dll: log2f()
+# 3 0x00007FF61F043720 in D:\C\QuadraticEquations\a.exe: __mingw_SEH_error_handler() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crt_handler.c:105
+# 4 0x00007FFE4CB55E9F in C:\Windows\SYSTEM32\ntdll.dll: _chkstk()
+# 5 0x00007FFE4CACE8C6 in C:\Windows\SYSTEM32\ntdll.dll: RtlFindCharInUnicodeString()
+# 6 0x00007FFE4CB54E9E in C:\Windows\SYSTEM32\ntdll.dll: KiUserExceptionDispatcher()
+# 7 0x00007FF61F0416A3 in D:\C\QuadraticEquations\a.exe: calculate_scale()
+# 8 0x00007FF61F04183B in D:\C\QuadraticEquations\a.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\nnetr\Downloads\TX\TXLib.h
+Compiled:	Aug 26 2026 09:31:07, GNU g++ 16.1.0, std=202002L, MinGW-W64 Runtime 15.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Aug 26 2026 09:31:24
+
+Run file:	D:\C\QuadraticEquations\a.exe
+Directory:	D:\C\QuadraticEquations
 
 --------------------------------------------------

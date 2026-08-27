@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <assert.h>
+#include "colors.h"
 #include "output.h"
 
 void print_root(EqRoots rootsOfEq) {
@@ -20,3 +23,7 @@ void print_root(EqRoots rootsOfEq) {
     break;
   }
 }
+
+
+
+

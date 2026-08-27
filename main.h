@@ -5,25 +5,21 @@
  вычисление дискриминанта и обработку всех частных случаев (включая равенство нулю).
 */
 
-#include <stdlib.h>
-#include <windows.h>
-#include "colors.h"
-#include "structures.h"
-#include "calc.h"
-#include "input.h"
-#include "output.h"
-#include "tests.h"
-
 /**
  @brief Отлов ошибок пользователя.
  @param [in] condition Проверяемое условие.
  @param [in] message Сообщение об ошибке.
 */
-#define verify_it(condition, message)\
-    if(!(condition)){ \
-        printf(stderr, "file: %s, lint: %d, fall: %s", __FILE__, __LINE__, message);\
-        abort(); \
-    }
+
+#ifdef NDEBUG
+#define verify_it(condition, message) ((void)0)
+#else
+#define verify_it(condition, message) \
+        if (!(condition)){\
+        printf(MAKE_YELLOW("%s: %d")" %s\n", __FILE__, __LINE__, message);\
+        abort();\
+        }
+#endif
 
 
 

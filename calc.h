@@ -1,12 +1,7 @@
 #ifndef CALC_H
 #define CALC_H
 
-#include <assert.h>
-#include <math.h>
-#include <stdbool.h>
-#include <stdio.h>
 #include "structures.h"
-#include "colors.h"
 
 /**
  @brief Главная функция-диспетчер для решения квадратного уравнения

@@ -1,9 +1,6 @@
 #ifndef OUTPUT_H
 #define OUTPUT_H
 
-#include <stdio.h>
-#include <assert.h>
-#include "colors.h"
 #include "structures.h"
 
 /**

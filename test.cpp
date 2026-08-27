@@ -1,55 +1,20 @@
-#define TX_COMPILED
-#include "TXLib.h"
 #include <stdio.h>
 #include <assert.h>
 
-#define EPS 1e-9
 
-#define verify_it(condition, message)\
-        if(!(condition)){\
-            printf(stderr, "file: %s, lint: %d, fall: %s", __FILE__, __LINE__, message);\
-        }
+int main() {
+    char buf[23];
+    int num = 42, r = 230;
 
-double is_it_dot(double a, double b, double c, double x){
-    return a*x*x + b*x + c;
+    int len = snprintf(buf, sizeof(buf), "%d", num);
+    printf("%s\n", buf);
+    snprintf(buf, sizeof(buf), "%d", r);
+    printf("%s\n", buf);
+    printf("%d\n", len);
+
+    return 0;
 }
 
-bool is_zero(const double val) {
-  return fabs(val) < EPS;
-}
-
-void calculate_scale(double xv, double yv, double pX, double pY, double* scaleX, double* scaleY) {
-    double maxX = pX * 0.5;
-    double maxY = pY * 0.5;
-
-    if (!is_zero(fabs(xv))) {
-        *scaleX = maxX / fabs(xv);
-    }
-
-    if (!is_zero(fabs(yv))) {
-        *scaleY = maxY / fabs(yv);
-    }
-}
-
-int main(){
-    double a = 1, b = 100, c = 10000;
-    double xv = -b / (2 * a), yv = is_it_dot(a, b, c, xv);
-    POINT sizeOfWindow = txGetExtent();
-    double pX = sizeOfWindow.x / 2, pY  = sizeOfWindow.y / 2;
-    double scaleX = 1.0;
-    double scaleY = 1.0;
-    calculate_scale(xv, yv, pX, pY, &scaleX, &scaleY);
-    txCreateWindow(sizeOfWindow.x, sizeOfWindow.y);
-    txClearConsole();
-    txSetColor(TX_WHITE, 1);
-    txLine(0, pY, sizeOfWindow.x, pY);
-    txLine(pX, 0, pX, sizeOfWindow.y);
-
-    for(double x = -pX; x < pX; x += 0.01){
-        double y = is_it_dot(a, b, c, x);
-        txSetPixel(x * scaleX + pX, -y * scaleY + pY, RGB(0, 191, 255));
-    }
-}
 
 
 

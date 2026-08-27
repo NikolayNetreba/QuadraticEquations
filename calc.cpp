@@ -1,4 +1,9 @@
+#include <assert.h>
+#include <math.h>
+#include <stdio.h>
+#include <stdbool.h>
 #include "calc.h"
+#include "colors.h"
 
 roots solve_quadratic_equations(coeff eqCoeff, EqRoots *rootsOfEq) {
   assert(rootsOfEq != NULL);
@@ -45,7 +50,7 @@ roots solve_square(coeff eqCoeff, EqRoots *rootsOfEq) {
 
   if (is_zero(c)) {
     *x1 = 0;
-    *x2 = -b / a + 0.0;
+    *x2 = -b / a + 0.0; // -0.0 + 0.0 = 0.0
     if (is_equal(*x1, *x2))
         return ONE_ROOT;
     return TWO_ROOTS;
@@ -53,7 +58,7 @@ roots solve_square(coeff eqCoeff, EqRoots *rootsOfEq) {
 
   double disc = find_discriminant(eqCoeff);
   if (is_zero(disc)) {
-    *x1 = -b / (2 * a) + 0.0;
+    *x1 = -b / (2 * a) + 0.0; // -0.0 + 0.0 = 0.0
     return ONE_ROOT;
   }
   if (disc > 0) {
@@ -67,7 +72,7 @@ roots solve_square(coeff eqCoeff, EqRoots *rootsOfEq) {
 }
 
 double find_discriminant(coeff eqCoeff) {
-  return eqCoeff.b * eqCoeff.b - 4 * eqCoeff.a * eqCoeff.c + 0.0;
+  return eqCoeff.b * eqCoeff.b - 4 * eqCoeff.a * eqCoeff.c + 0.0; // -0.0 + 0.0 = 0.0
 }
 
 

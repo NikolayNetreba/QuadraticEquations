@@ -1,10 +1,7 @@
 #ifndef TESTS_H
 #define TESTS_H
 
-#include <stdio.h>
 #include "structures.h"
-#include "calc.h"
-#include "input.h"
 
 #define END_SCAN_COUNT -1
 #define FILE_SCAN_COUNT 6

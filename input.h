@@ -2,13 +2,8 @@
 #define INPUT_H
 
 #include <stdio.h>
-#include <assert.h>
 #include <stddef.h>
-#include <errno.h>
 #include "structures.h"
-#include "colors.h"
-#include "output.h"
-#include "tests.h"
 
 #define MAX_OP_LEN 100
 #define MAX_OP_LEN_STR "99"
@@ -19,10 +14,16 @@ typedef enum {
     op_console = 'c',
     op_exit = 'e',
     op_file = 'f',
-    op_test = 't'
+    op_test = 't',
 } opChoose;
 
+typedef enum {
+    op_yes = 'y',
+    op_no = 'n',
+} opYN;
+
 void scan_op(opChoose *op);
+opYN scan_yes_or_no();
 void choose_option(opChoose *op);
 void scan_coefficient(coeff *eqCoeff);
 FILE *scan_file_name(void);

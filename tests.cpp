@@ -1,4 +1,10 @@
+#include <stdio.h>
+#include <assert.h>
 #include "tests.h"
+#include "calc.h"
+#include "structures.h"
+#include "colors.h"
+#include "input.h"
 
 void start_tests() {
     FILE *file = scan_file_name();
@@ -113,7 +119,7 @@ opStatus process_scan_count(int scanCount) {
 
 bool is_success(EqRoots RootsOfEq, EqRoots RefRootsOfEq) {
     bool success = (RootsOfEq.nRoots == RefRootsOfEq.nRoots);
-    if (!success){
+    if (!success) {
         return success;
     }
     if (RootsOfEq.nRoots == 2) {

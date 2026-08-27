@@ -1,4 +1,11 @@
+#include <assert.h>
+#include <errno.h>
 #include "input.h"
+#include "colors.h"
+#include "output.h"
+#include "tests.h"
+#include "calc.h"
+#include "createGraph.h"
 
 void handle_op_status(coeff eqCoeff, opStatus* state) {
   switch (*state) {
@@ -11,6 +18,13 @@ void handle_op_status(coeff eqCoeff, opStatus* state) {
     EqRoots rootsOfEq = {};
     rootsOfEq.nRoots = solve_quadratic_equations(eqCoeff, &rootsOfEq);
     print_root(rootsOfEq);
+
+    opYN graphStatus = scan_yes_or_no();
+
+    if (graphStatus == op_yes) {
+      printf("hi2\n");
+      crateGraph(eqCoeff);
+    }
     break;
   }
   case OP_STATUS_TEST:
@@ -57,7 +71,7 @@ opStatus input_coefficients(coeff* eqCoeff) {
 
 void scan_op(opChoose *op) {
   assert(op != NULL);
-  char temp = ' ';
+  char temp = 'e';
 
   while (scanf(" %1[cfet]", &temp) != 1) {
     printf(MAKE_RED("Try it again: "));
@@ -65,6 +79,19 @@ void scan_op(opChoose *op) {
   }
 
   *op = (opChoose)temp;
+}
+
+opYN scan_yes_or_no() {
+  printf("Do you want to create a graph?\n");
+
+  char temp = 'n';
+
+  while (scanf(" %1[yn]", &temp) != 1) {
+    printf(MAKE_RED("Try it again: "));
+    clear_buffer();
+  }
+
+  return (opYN)temp;
 }
 
 void choose_option(opChoose *op) {
@@ -112,7 +139,7 @@ FILE *scan_file_name() {
     }
 
     file = fopen(fileName, "r");
-    if (file == NULL){
+    if (file == NULL) {
       fprintf(stderr, MAKE_RED("Error opening file: ")"%s: ", fileName);
       perror("");
       fprintf(stderr, LINE);

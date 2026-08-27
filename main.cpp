@@ -1,12 +1,9 @@
 #include "main.h"
 #include <stdlib.h>
 #include <windows.h>
-#include "colors.h"
 #include "structures.h"
-#include "calc.h"
 #include "input.h"
-#include "output.h"
-#include "tests.h"
+
 
 int main() {
   coeff eqCoeff = {};

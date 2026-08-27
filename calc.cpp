@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "calc.h"
-#include "colors.h"
 
 roots solve_quadratic_equations(coeff eqCoeff, EqRoots *rootsOfEq) {
   assert(rootsOfEq != NULL);

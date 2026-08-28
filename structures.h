@@ -22,7 +22,7 @@ struct coeff {
     double a, b, c;
 };
 
-struct EqRoots {
+struct eqRoots {
     double x1, x2;
     roots nRoots;
 };

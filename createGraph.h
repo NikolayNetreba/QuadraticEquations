@@ -4,10 +4,19 @@
 #include <windows.h>
 #include "structures.h"
 
-void calculate_scale(double xv, double yv, double pX, double pY, double* scaleX, double* scaleY);
+struct screenParams {
+    double Width, Height;
+    double halfWidth, halfHeight;
+    double scaleX, scaleY;
+};
+
+
+void calculate_scale(double xv, double yv, screenParams* screen);
 bool change_scale(double* scaleX, double* scaleY);
-void creatLine(POINT sizeOfWindow, double halfX, double halfY, double scaleX, double scaleY);
-void crateGraph(coeff eqCoeff);
-double is_it_dot(double a, double b, double c, double x);
-void printScale(double scaleX, double scaleY);
+void creatLine(screenParams screen);
+void crateGraph(coeff* eqCoeff);
+double find_y(coeff* eqCoeff, double x);
+void print_scale(double scaleX, double scaleY);
+void draw_axes(screenParams screen);
+void draw_graph(screenParams screen, coeff* eqCoeff);
 #endif

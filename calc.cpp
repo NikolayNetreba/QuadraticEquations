@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include "calc.h"
 
-roots solve_quadratic_equations(coeff eqCoeff, EqRoots *rootsOfEq) {
+roots solve_quadratic_equations(coeff eqCoeff, eqRoots *rootsOfEq) {
   assert(rootsOfEq != NULL);
   assert(&(rootsOfEq->x1) != &(rootsOfEq->x2));
 
@@ -15,7 +15,7 @@ roots solve_quadratic_equations(coeff eqCoeff, EqRoots *rootsOfEq) {
   }
 }
 
-roots solve_linear(coeff eqCoeff, EqRoots *rootsOfEq) {
+roots solve_linear(coeff eqCoeff, eqRoots *rootsOfEq) {
   assert(rootsOfEq != NULL);
 
   if (is_zero(eqCoeff.b) && is_zero(eqCoeff.c)) {
@@ -32,14 +32,16 @@ roots solve_linear(coeff eqCoeff, EqRoots *rootsOfEq) {
 }
 
 bool is_zero(const double val) {
+  if(isnan(val))
+    return false;
   return fabs(val) < EPS;
 }
 
 bool is_equal(double a, double b) {
-    return is_zero(fabs(a - b));
+  return is_zero(fabs(a - b));
 }
 
-roots solve_square(coeff eqCoeff, EqRoots *rootsOfEq) {
+roots solve_square(coeff eqCoeff, eqRoots *rootsOfEq) {
   assert(rootsOfEq != NULL);
 
   double *x1 = &(rootsOfEq->x1), *x2 = &(rootsOfEq->x2);
@@ -56,6 +58,9 @@ roots solve_square(coeff eqCoeff, EqRoots *rootsOfEq) {
   }
 
   double disc = find_discriminant(eqCoeff);
+  if (isnan(disc))
+    return NO_ROOTS;
+
   if (is_zero(disc)) {
     *x1 = -b / (2 * a) + 0.0; // -0.0 + 0.0 = 0.0
     return ONE_ROOT;

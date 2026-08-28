@@ -33,7 +33,7 @@ void choose_value(int *value, const char *message) {
     } while(countScanf != 1);
 }
 
-bool check_stress_tests(coeff eqCoeff, EqRoots rootsOfEq) {
+bool check_stress_tests(coeff eqCoeff, eqRoots rootsOfEq) {
     bool result = false;
     double a = eqCoeff.a, b = eqCoeff.b, c = eqCoeff.c;
     double x1 = rootsOfEq.x1, x2 = rootsOfEq.x2;
@@ -61,7 +61,7 @@ bool check_stress_tests(coeff eqCoeff, EqRoots rootsOfEq) {
     return result;
 }
 
-void print_stress_test_result(int index, coeff eqCoeff, EqRoots rootsOfEq, int success) {
+void print_stress_test_result(int index, coeff eqCoeff, eqRoots rootsOfEq, int success) {
     if (success) {
             printf(MAKE_GREEN("%d Unit test passed\n"), index);
     } else {
@@ -81,7 +81,7 @@ void do_stress_tests(const int range, const int count) {
             .b = (double)(rand() % range - (range / 2)),
             .c = (double)(rand() % range - (range / 2)),
         };
-        EqRoots rootsOfEq = {};
+        eqRoots rootsOfEq = {};
 
         rootsOfEq.nRoots = solve_quadratic_equations(eqCoeff, &rootsOfEq);
 
@@ -90,7 +90,7 @@ void do_stress_tests(const int range, const int count) {
     }
 }
 
-opStatus read_from_unit_tests(coeff *eqCoeff, EqRoots *RefRootsOfEq, FILE *file) {
+opStatus read_from_unit_tests(coeff *eqCoeff, eqRoots *RefRootsOfEq, FILE *file) {
     assert(eqCoeff != NULL);
     assert(RefRootsOfEq != NULL);
     assert(file != NULL && "Path is null");
@@ -117,7 +117,7 @@ opStatus process_scan_count(int scanCount) {
     return OP_STATUS_OK;
 }
 
-bool is_success(EqRoots RootsOfEq, EqRoots RefRootsOfEq) {
+bool is_success(eqRoots RootsOfEq, eqRoots RefRootsOfEq) {
     bool success = (RootsOfEq.nRoots == RefRootsOfEq.nRoots);
     if (!success) {
         return success;
@@ -132,8 +132,8 @@ bool is_success(EqRoots RootsOfEq, EqRoots RefRootsOfEq) {
     return success;
 }
 
-void print_unit_result(int index, coeff eqCoeff, EqRoots RefRootsOfEq,
-                       EqRoots RootsOfEq, int success) {
+void print_unit_result(int index, coeff eqCoeff, eqRoots RefRootsOfEq,
+                       eqRoots RootsOfEq, int success) {
     if (success) {
             printf(MAKE_GREEN("%d Unit test passed\n"), index);
     } else {
@@ -156,7 +156,7 @@ void do_unit_tests(FILE *file) {
     do {
         index++;
         coeff eqCoeff = {};
-        EqRoots RefRootsOfEq = {}, RootsOfEq = {};
+        eqRoots RefRootsOfEq = {}, RootsOfEq = {};
 
         state = read_from_unit_tests(&eqCoeff, &RefRootsOfEq, file);
 

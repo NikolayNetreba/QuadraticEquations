@@ -12,17 +12,17 @@
  @param [out] x2 Указатель для записи второго корня.
  @return Статус решения из перечисления #roots.
 */
-roots solve_quadratic_equations(coeff eqCoeff, EqRoots *rootsOfEq);
+roots solve_quadratic_equations(coeff eqCoeff, eqRoots *rootsOfEq);
 
 /**
  @brief Функция для решения уравнений линейного вида.
 */
-roots solve_linear(coeff eqCoeff, EqRoots *rootsOfEq);
+roots solve_linear(coeff eqCoeff, eqRoots *rootsOfEq);
 
 /**
  @brief Функция для решения уравнений квадратного вида.
 */
-roots solve_square(coeff eqCoeff, EqRoots *rootsOfEq);
+roots solve_square(coeff eqCoeff, eqRoots *rootsOfEq);
 
 /**
  @brief Проверяет равно ли число 0 с учетом погрешности EPS

@@ -1,0 +1,467 @@
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\nnetr\projects\a.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF7EB9B23A0 (64-bit), Flags: Cmdre0, Thread: 0x6E88 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7EB96E20E in C:\Users\nnetr\projects\a.exe: TX::_txError()
+# 1 0x00007FF7EB96E579 in C:\Users\nnetr\projects\a.exe: TX::_txOnSignal()
+# 2 0x00007FFF2FFC6EAF in C:\WINDOWS\System32\ucrtbase.dll: memcpy()
+# 3 0x00007FF7EB984B10 in C:\Users\nnetr\projects\a.exe: __mingw_SEH_error_handler() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crt_handler.c:105
+# 4 0x00007FFF32964ABF in C:\WINDOWS\SYSTEM32\ntdll.dll: _chkstk()
+# 5 0x00007FFF32845E97 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlLocateExtendedFeature()
+# 6 0x00007FFF329643FE in C:\WINDOWS\SYSTEM32\ntdll.dll: KiUserExceptionDispatcher()
+
+# 7 0x00007FF7EB9616A3 in C:\Users\nnetr\projects\a.exe: is_zero() at C:/Users/nnetr/projects/calc.cpp:35:
+
+     33: 
+     34: bool is_zero(const double val) {
+=>   35:   return fabs(val) < EPS;
+     36: }
+     37: 
+
+# 8 0x00007FF7EB961832 in C:\Users\nnetr\projects\a.exe: solve_square() at C:/Users/nnetr/projects/calc.cpp:59:
+
+     57: 
+     58:   double disc = find_discriminant(eqCoeff);
+=>   59:   if (is_zero(disc)) {
+     60:     *x1 = -b / (2 * a) + 0.0; // -0.0 + 0.0 = 0.0
+     61:     return ONE_ROOT;
+
+# 9 0x00007FF7EB9615B6 in C:\Users\nnetr\projects\a.exe: solve_quadratic_equations() at C:/Users/nnetr/projects/calc.cpp:14:
+
+     12:     return solve_linear(eqCoeff, rootsOfEq);
+     13:   } else {
+=>   14:     return solve_square(eqCoeff, rootsOfEq);
+     15:   }
+     16: }
+
+#10 0x00007FF7EB962A30 in C:\Users\nnetr\projects\a.exe: do_unit_tests() at C:/Users/nnetr/projects/tests.cpp:170:
+
+    168:         }
+    169: 
+=>  170:         RootsOfEq.nRoots = solve_quadratic_equations(eqCoeff, &RootsOfEq);
+    171:         bool success = is_success(RootsOfEq, RefRootsOfEq);
+    172: 
+
+#11 0x00007FF7EB96212D in C:\Users\nnetr\projects\a.exe: start_tests() at C:/Users/nnetr/projects/tests.cpp:11:
+
+      9: void start_tests() {
+     10:     FILE *file = scan_file_name();
+=>   11:     do_unit_tests(file);
+     12: 
+     13:     int range = 0;
+
+#12 0x00007FF7EB961A71 in C:\Users\nnetr\projects\a.exe: handle_op_status() at C:/Users/nnetr/projects/input.cpp:30:
+
+     28:   }
+     29:   case OP_STATUS_TEST:
+=>   30:     start_tests();
+     31:     break;
+     32:   case OP_STATUS_IMPOSSIBLE:
+
+#13 0x00007FF7EB961508 in C:\Users\nnetr\projects\a.exe: main() at C:/Users/nnetr/projects/main.cpp:14:
+
+     12:   do {
+     13:     state = input_coefficients(&eqCoeff);
+=>   14:     handle_op_status(eqCoeff, &state);
+     15:   } while (state == OP_STATUS_DO_IT_AGAIN);
+     16: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\nnetr\Downloads\TX\TXLib.h
+Compiled:	Aug 27 2026 14:22:48, GNU g++ 16.1.0, std=202002L, MinGW-W64 Runtime 15.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Aug 28 2026 11:59:51
+
+Run file:	C:\Users\nnetr\projects\a.exe
+Directory:	C:\Users\nnetr\projects
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\nnetr\projects\a.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF661C623A0 (64-bit), Flags: Cmdre0, Thread: 0x2CA0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF661C1E20E in C:\Users\nnetr\projects\a.exe: TX::_txError()
+# 1 0x00007FF661C1E579 in C:\Users\nnetr\projects\a.exe: TX::_txOnSignal()
+# 2 0x00007FFF2FFC6EAF in C:\WINDOWS\System32\ucrtbase.dll: memcpy()
+# 3 0x00007FF661C34B10 in C:\Users\nnetr\projects\a.exe: __mingw_SEH_error_handler() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crt_handler.c:105
+# 4 0x00007FFF32964ABF in C:\WINDOWS\SYSTEM32\ntdll.dll: _chkstk()
+# 5 0x00007FFF32845E97 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlLocateExtendedFeature()
+# 6 0x00007FFF329643FE in C:\WINDOWS\SYSTEM32\ntdll.dll: KiUserExceptionDispatcher()
+
+# 7 0x00007FF661C116A3 in C:\Users\nnetr\projects\a.exe: is_zero() at C:/Users/nnetr/projects/calc.cpp:35:
+
+     33: 
+     34: bool is_zero(const double val) {
+=>   35:   return fabs(val) < EPS;
+     36: }
+     37: 
+
+# 8 0x00007FF661C11832 in C:\Users\nnetr\projects\a.exe: solve_square() at C:/Users/nnetr/projects/calc.cpp:59:
+
+     57: 
+     58:   double disc = find_discriminant(eqCoeff);
+=>   59:   if (is_zero(disc)) {
+     60:     *x1 = -b / (2 * a) + 0.0; // -0.0 + 0.0 = 0.0
+     61:     return ONE_ROOT;
+
+# 9 0x00007FF661C115B6 in C:\Users\nnetr\projects\a.exe: solve_quadratic_equations() at C:/Users/nnetr/projects/calc.cpp:14:
+
+     12:     return solve_linear(eqCoeff, rootsOfEq);
+     13:   } else {
+=>   14:     return solve_square(eqCoeff, rootsOfEq);
+     15:   }
+     16: }
+
+#10 0x00007FF661C12A30 in C:\Users\nnetr\projects\a.exe: do_unit_tests() at C:/Users/nnetr/projects/tests.cpp:170:
+
+    168:         }
+    169: 
+=>  170:         RootsOfEq.nRoots = solve_quadratic_equations(eqCoeff, &RootsOfEq);
+    171:         bool success = is_success(RootsOfEq, RefRootsOfEq);
+    172: 
+
+#11 0x00007FF661C1212D in C:\Users\nnetr\projects\a.exe: start_tests() at C:/Users/nnetr/projects/tests.cpp:11:
+
+      9: void start_tests() {
+     10:     FILE *file = scan_file_name();
+=>   11:     do_unit_tests(file);
+     12: 
+     13:     int range = 0;
+
+#12 0x00007FF661C11A71 in C:\Users\nnetr\projects\a.exe: handle_op_status() at C:/Users/nnetr/projects/input.cpp:30:
+
+     28:   }
+     29:   case OP_STATUS_TEST:
+=>   30:     start_tests();
+     31:     break;
+     32:   case OP_STATUS_IMPOSSIBLE:
+
+#13 0x00007FF661C11508 in C:\Users\nnetr\projects\a.exe: main() at C:/Users/nnetr/projects/main.cpp:14:
+
+     12:   do {
+     13:     state = input_coefficients(&eqCoeff);
+=>   14:     handle_op_status(eqCoeff, &state);
+     15:   } while (state == OP_STATUS_DO_IT_AGAIN);
+     16: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\nnetr\Downloads\TX\TXLib.h
+Compiled:	Aug 27 2026 14:22:48, GNU g++ 16.1.0, std=202002L, MinGW-W64 Runtime 15.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Aug 28 2026 12:02:12
+
+Run file:	C:\Users\nnetr\projects\a.exe
+Directory:	C:\Users\nnetr\projects
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\nnetr\projects\a.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF7B95223A0 (64-bit), Flags: Cmdre0, Thread: 0x4930 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7B94DE22E in C:\Users\nnetr\projects\a.exe: TX::_txError()
+# 1 0x00007FF7B94DE599 in C:\Users\nnetr\projects\a.exe: TX::_txOnSignal()
+# 2 0x00007FFF2FFC6EAF in C:\WINDOWS\System32\ucrtbase.dll: memcpy()
+# 3 0x00007FF7B94F4B30 in C:\Users\nnetr\projects\a.exe: __mingw_SEH_error_handler() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crt_handler.c:105
+# 4 0x00007FFF32964ABF in C:\WINDOWS\SYSTEM32\ntdll.dll: _chkstk()
+# 5 0x00007FFF32845E97 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlLocateExtendedFeature()
+# 6 0x00007FFF329643FE in C:\WINDOWS\SYSTEM32\ntdll.dll: KiUserExceptionDispatcher()
+
+# 7 0x00007FF7B94D16C3 in C:\Users\nnetr\projects\a.exe: is_zero() at C:/Users/nnetr/projects/calc.cpp:36:
+
+     34: bool is_zero(const double val) {
+     35:   printf("is_zero calc.cpp 35, %lf", val);
+=>   36:   return fabs(val) < EPS;
+     37: }
+     38: 
+
+# 8 0x00007FF7B94D1856 in C:\Users\nnetr\projects\a.exe: solve_square() at C:/Users/nnetr/projects/calc.cpp:60:
+
+     58: 
+     59:   double disc = find_discriminant(eqCoeff);
+=>   60:   if (is_zero(disc)) {
+     61:     *x1 = -b / (2 * a) + 0.0; // -0.0 + 0.0 = 0.0
+     62:     return ONE_ROOT;
+
+# 9 0x00007FF7B94D15B6 in C:\Users\nnetr\projects\a.exe: solve_quadratic_equations() at C:/Users/nnetr/projects/calc.cpp:14:
+
+     12:     return solve_linear(eqCoeff, rootsOfEq);
+     13:   } else {
+=>   14:     return solve_square(eqCoeff, rootsOfEq);
+     15:   }
+     16: }
+
+#10 0x00007FF7B94D2A50 in C:\Users\nnetr\projects\a.exe: do_unit_tests() at C:/Users/nnetr/projects/tests.cpp:170:
+
+    168:         }
+    169: 
+=>  170:         RootsOfEq.nRoots = solve_quadratic_equations(eqCoeff, &RootsOfEq);
+    171:         bool success = is_success(RootsOfEq, RefRootsOfEq);
+    172: 
+
+#11 0x00007FF7B94D214D in C:\Users\nnetr\projects\a.exe: start_tests() at C:/Users/nnetr/projects/tests.cpp:11:
+
+      9: void start_tests() {
+     10:     FILE *file = scan_file_name();
+=>   11:     do_unit_tests(file);
+     12: 
+     13:     int range = 0;
+
+#12 0x00007FF7B94D1A91 in C:\Users\nnetr\projects\a.exe: handle_op_status() at C:/Users/nnetr/projects/input.cpp:30:
+
+     28:   }
+     29:   case OP_STATUS_TEST:
+=>   30:     start_tests();
+     31:     break;
+     32:   case OP_STATUS_IMPOSSIBLE:
+
+#13 0x00007FF7B94D1508 in C:\Users\nnetr\projects\a.exe: main() at C:/Users/nnetr/projects/main.cpp:14:
+
+     12:   do {
+     13:     state = input_coefficients(&eqCoeff);
+=>   14:     handle_op_status(eqCoeff, &state);
+     15:   } while (state == OP_STATUS_DO_IT_AGAIN);
+     16: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\nnetr\Downloads\TX\TXLib.h
+Compiled:	Aug 27 2026 14:22:48, GNU g++ 16.1.0, std=202002L, MinGW-W64 Runtime 15.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Aug 28 2026 12:43:18
+
+Run file:	C:\Users\nnetr\projects\a.exe
+Directory:	C:\Users\nnetr\projects
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\nnetr\projects\a.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF6007423A0 (64-bit), Flags: Cmdre0, Thread: 0x624C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6006FE22E in C:\Users\nnetr\projects\a.exe: TX::_txError()
+# 1 0x00007FF6006FE599 in C:\Users\nnetr\projects\a.exe: TX::_txOnSignal()
+# 2 0x00007FFF2FFC6EAF in C:\WINDOWS\System32\ucrtbase.dll: memcpy()
+# 3 0x00007FF600714B30 in C:\Users\nnetr\projects\a.exe: __mingw_SEH_error_handler() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crt_handler.c:105
+# 4 0x00007FFF32964ABF in C:\WINDOWS\SYSTEM32\ntdll.dll: _chkstk()
+# 5 0x00007FFF32845E97 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlLocateExtendedFeature()
+# 6 0x00007FFF329643FE in C:\WINDOWS\SYSTEM32\ntdll.dll: KiUserExceptionDispatcher()
+
+# 7 0x00007FF6006F16C3 in C:\Users\nnetr\projects\a.exe: is_zero() at C:/Users/nnetr/projects/calc.cpp:36:
+
+     34: bool is_zero(const double val) {
+     35:   printf("is_zero calc.cpp 35, %lf\n", val);
+=>   36:   return fabs(val) < EPS;
+     37: }
+     38: 
+
+# 8 0x00007FF6006F1856 in C:\Users\nnetr\projects\a.exe: solve_square() at C:/Users/nnetr/projects/calc.cpp:60:
+
+     58: 
+     59:   double disc = find_discriminant(eqCoeff);
+=>   60:   if (is_zero(disc)) {
+     61:     *x1 = -b / (2 * a) + 0.0; // -0.0 + 0.0 = 0.0
+     62:     return ONE_ROOT;
+
+# 9 0x00007FF6006F15B6 in C:\Users\nnetr\projects\a.exe: solve_quadratic_equations() at C:/Users/nnetr/projects/calc.cpp:14:
+
+     12:     return solve_linear(eqCoeff, rootsOfEq);
+     13:   } else {
+=>   14:     return solve_square(eqCoeff, rootsOfEq);
+     15:   }
+     16: }
+
+#10 0x00007FF6006F2A50 in C:\Users\nnetr\projects\a.exe: do_unit_tests() at C:/Users/nnetr/projects/tests.cpp:170:
+
+    168:         }
+    169: 
+=>  170:         RootsOfEq.nRoots = solve_quadratic_equations(eqCoeff, &RootsOfEq);
+    171:         bool success = is_success(RootsOfEq, RefRootsOfEq);
+    172: 
+
+#11 0x00007FF6006F214D in C:\Users\nnetr\projects\a.exe: start_tests() at C:/Users/nnetr/projects/tests.cpp:11:
+
+      9: void start_tests() {
+     10:     FILE *file = scan_file_name();
+=>   11:     do_unit_tests(file);
+     12: 
+     13:     int range = 0;
+
+#12 0x00007FF6006F1A91 in C:\Users\nnetr\projects\a.exe: handle_op_status() at C:/Users/nnetr/projects/input.cpp:30:
+
+     28:   }
+     29:   case OP_STATUS_TEST:
+=>   30:     start_tests();
+     31:     break;
+     32:   case OP_STATUS_IMPOSSIBLE:
+
+#13 0x00007FF6006F1508 in C:\Users\nnetr\projects\a.exe: main() at C:/Users/nnetr/projects/main.cpp:14:
+
+     12:   do {
+     13:     state = input_coefficients(&eqCoeff);
+=>   14:     handle_op_status(eqCoeff, &state);
+     15:   } while (state == OP_STATUS_DO_IT_AGAIN);
+     16: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\nnetr\Downloads\TX\TXLib.h
+Compiled:	Aug 27 2026 14:22:48, GNU g++ 16.1.0, std=202002L, MinGW-W64 Runtime 15.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Aug 28 2026 12:44:21
+
+Run file:	C:\Users\nnetr\projects\a.exe
+Directory:	C:\Users\nnetr\projects
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\nnetr\projects\a.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF786C923A0 (64-bit), Flags: Cmdre0, Thread: 0xB40 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF786C4E22E in C:\Users\nnetr\projects\a.exe: TX::_txError()
+# 1 0x00007FF786C4E599 in C:\Users\nnetr\projects\a.exe: TX::_txOnSignal()
+# 2 0x00007FFF2FFC6EAF in C:\WINDOWS\System32\ucrtbase.dll: memcpy()
+# 3 0x00007FF786C64B30 in C:\Users\nnetr\projects\a.exe: __mingw_SEH_error_handler() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crt_handler.c:105
+# 4 0x00007FFF32964ABF in C:\WINDOWS\SYSTEM32\ntdll.dll: _chkstk()
+# 5 0x00007FFF32845E97 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlLocateExtendedFeature()
+# 6 0x00007FFF329643FE in C:\WINDOWS\SYSTEM32\ntdll.dll: KiUserExceptionDispatcher()
+
+# 7 0x00007FF786C4189B in C:\Users\nnetr\projects\a.exe: solve_square() at C:/Users/nnetr/projects/calc.cpp:65:
+
+     63:     return ONE_ROOT;
+     64:   }
+=>   65:   if (disc > 0) {
+     66:     double sqDisc = sqrt(disc);
+     67:     *x1 = (-b + sqDisc) / (2 * a);
+
+# 8 0x00007FF786C415B6 in C:\Users\nnetr\projects\a.exe: solve_quadratic_equations() at C:/Users/nnetr/projects/calc.cpp:14:
+
+     12:     return solve_linear(eqCoeff, rootsOfEq);
+     13:   } else {
+=>   14:     return solve_square(eqCoeff, rootsOfEq);
+     15:   }
+     16: }
+
+# 9 0x00007FF786C42A50 in C:\Users\nnetr\projects\a.exe: do_unit_tests() at C:/Users/nnetr/projects/tests.cpp:170:
+
+    168:         }
+    169: 
+=>  170:         RootsOfEq.nRoots = solve_quadratic_equations(eqCoeff, &RootsOfEq);
+    171:         bool success = is_success(RootsOfEq, RefRootsOfEq);
+    172: 
+
+#10 0x00007FF786C4214D in C:\Users\nnetr\projects\a.exe: start_tests() at C:/Users/nnetr/projects/tests.cpp:11:
+
+      9: void start_tests() {
+     10:     FILE *file = scan_file_name();
+=>   11:     do_unit_tests(file);
+     12: 
+     13:     int range = 0;
+
+#11 0x00007FF786C41A91 in C:\Users\nnetr\projects\a.exe: handle_op_status() at C:/Users/nnetr/projects/input.cpp:30:
+
+     28:   }
+     29:   case OP_STATUS_TEST:
+=>   30:     start_tests();
+     31:     break;
+     32:   case OP_STATUS_IMPOSSIBLE:
+
+#12 0x00007FF786C41508 in C:\Users\nnetr\projects\a.exe: main() at C:/Users/nnetr/projects/main.cpp:14:
+
+     12:   do {
+     13:     state = input_coefficients(&eqCoeff);
+=>   14:     handle_op_status(eqCoeff, &state);
+     15:   } while (state == OP_STATUS_DO_IT_AGAIN);
+     16: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\nnetr\Downloads\TX\TXLib.h
+Compiled:	Aug 27 2026 14:22:48, GNU g++ 16.1.0, std=202002L, MinGW-W64 Runtime 15.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Aug 28 2026 12:52:54
+
+Run file:	C:\Users\nnetr\projects\a.exe
+Directory:	C:\Users\nnetr\projects
+
+--------------------------------------------------

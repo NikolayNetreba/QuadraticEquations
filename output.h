@@ -6,5 +6,5 @@
 /**
  @brief Выводит результат работы программы, с учетом кол-ва корней.
 */
-void print_root(EqRoots rootsOfEq);
+void print_root(eqRoots rootsOfEq);
 #endif

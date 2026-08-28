@@ -7,6 +7,8 @@
 #include "createGraph.h"
 
 void handle_op_status(coeff eqCoeff, opStatus* state) {
+  assert(state != NULL);
+
   switch (*state) {
   case OP_STATUS_DO_IT_AGAIN:
     break;
@@ -14,7 +16,7 @@ void handle_op_status(coeff eqCoeff, opStatus* state) {
     printf(MAKE_MAGENTA("Bye!\n"));
     return;
   case OP_STATUS_OK: {
-    EqRoots rootsOfEq = {};
+    eqRoots rootsOfEq = {};
     rootsOfEq.nRoots = solve_quadratic_equations(eqCoeff, &rootsOfEq);
     print_root(rootsOfEq);
 
@@ -22,7 +24,7 @@ void handle_op_status(coeff eqCoeff, opStatus* state) {
 
     if (graphStatus == op_yes) {
       printf("hi2\n");
-      crateGraph(eqCoeff);
+      crateGraph(&eqCoeff);
     }
     break;
   }

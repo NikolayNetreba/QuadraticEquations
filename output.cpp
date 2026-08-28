@@ -3,7 +3,7 @@
 #include "colors.h"
 #include "output.h"
 
-void print_root(EqRoots rootsOfEq) {
+void print_root(eqRoots rootsOfEq) {
   switch (rootsOfEq.nRoots) {
   case NO_ROOTS:
     printf(MAKE_YELLOW("zero root, x1 = x2 = none\n")LINE);

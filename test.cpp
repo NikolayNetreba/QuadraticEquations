@@ -3,15 +3,9 @@
 
 
 int main() {
-    char buf[23];
-    int num = 42, r = 230;
-
-    int len = snprintf(buf, sizeof(buf), "%d", num);
-    printf("%s\n", buf);
-    snprintf(buf, sizeof(buf), "%d", r);
-    printf("%s\n", buf);
-    printf("%d\n", len);
-
+    char* str = "hi";
+    str = "gy";
+    printf("%s", str);
     return 0;
 }
 

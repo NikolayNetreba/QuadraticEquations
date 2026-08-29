@@ -16,15 +16,14 @@ void handle_op_status(coeff eqCoeff, opStatus* state) {
     printf(MAKE_MAGENTA("Bye!\n"));
     return;
   case OP_STATUS_OK: {
-    eqRoots rootsOfEq = {};
+    eqRoots rootsOfEq;
     rootsOfEq.nRoots = solve_quadratic_equations(eqCoeff, &rootsOfEq);
     print_root(rootsOfEq);
 
     opYN graphStatus = scan_yes_or_no();
 
     if (graphStatus == op_yes) {
-      printf("hi2\n");
-      crateGraph(&eqCoeff);
+      createGraph(&eqCoeff, rootsOfEq);
     }
     break;
   }
@@ -83,7 +82,7 @@ void scan_op(opChoose *op) {
 }
 
 opYN scan_yes_or_no() {
-  printf("Do you want to create a graph?\n");
+  printf("Do you want to create a graph? [y/n]\n");
 
   char temp = 'n';
 

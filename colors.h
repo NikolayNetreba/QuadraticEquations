@@ -9,10 +9,11 @@
 #define MAGENTA "\033[35m"
 #define CYAN    "\033[36m"
 
-#define MAKE_RED(A)     RED A RESET
-#define MAKE_GREEN(A)   GREEN A RESET
+#define MAKE_RED(A)     RED    A RESET
+#define MAKE_GREEN(A)   GREEN  A RESET
 #define MAKE_YELLOW(A)  YELLOW A RESET
-#define MAKE_BLUE(A)    BLUE A RESET
+#define MAKE_BLUE(A)    BLUE   A RESET
 #define MAKE_MAGENTA(A) MAGENTA A RESET
 #define MAKE_CYAN(A)    CYAN A RESET
+
 #endif

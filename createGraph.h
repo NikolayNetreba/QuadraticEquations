@@ -5,7 +5,7 @@
 #include "structures.h"
 
 struct screenParams {
-    double Width, Height;
+    double width, height;
     double halfWidth, halfHeight;
     double scaleX, scaleY;
 };
@@ -13,10 +13,11 @@ struct screenParams {
 
 void calculate_scale(double xv, double yv, screenParams* screen);
 bool change_scale(double* scaleX, double* scaleY);
-void creatLine(screenParams screen);
-void crateGraph(coeff* eqCoeff);
+void createLine(screenParams screen);
+void createGraph(coeff* eqCoeff, eqRoots rootsOfEq);
 double find_y(coeff* eqCoeff, double x);
 void print_scale(double scaleX, double scaleY);
 void draw_axes(screenParams screen);
 void draw_graph(screenParams screen, coeff* eqCoeff);
-#endif
+
+#endif /* CREATEGRAPH_H */

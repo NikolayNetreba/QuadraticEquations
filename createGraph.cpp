@@ -7,78 +7,89 @@
 
 const double initialScale = 25;
 const int shift = 25;
-const COLORREF blue = RGB(0, 191, 255);
 const int buffSize = 20;
+const double graphScale = 1.5;
+const COLORREF blue = RGB(0, 191, 255);
 
-void crateGraph(coeff* eqCoeff) {
-    assert(eqCoeff != NULL);
+void createGraph(coeff* eqCoeff, eqRoots rootsOfEq) {
+    assert(eqCoeff);
 
-    double xv = -eqCoeff->b / (2 * eqCoeff->a), yv = find_y(eqCoeff, xv);
+    double x0 = 0.0, y0 = 0.0;
+    if (rootsOfEq.nRoots == ONE_ROOT){
+        x0 = rootsOfEq.x1;
+    } else {
+        x0 = -eqCoeff->b / (2 * eqCoeff->a);
+        y0 = find_y(eqCoeff, x0);
+    }
+
     screenParams screen = {
-    .Width = txGetExtentX(),       .Height = txGetExtentY(),
-    .halfWidth = screen.Width / 2, .halfHeight = screen.Height / 2,
-    .scaleX = initialScale,        .scaleY = initialScale,
+        .width  = txGetExtentX(),//TODO
+        .height = txGetExtentY(),
+        .halfWidth  = screen.width  / 2,
+        .halfHeight = screen.height / 2,
+        .scaleX = initialScale,
+        .scaleY = initialScale,
     };
 
-    txCreateWindow(screen.Width, screen.Height);
+    txCreateWindow(screen.width, screen.height);
     txClearConsole();
-
-    calculate_scale(xv, yv, &screen);
+    printf("%lf, %lf\n", x0, y0);
+    calculate_scale(x0, y0, &screen);
 
     txSetColor(TX_WHITE, 1);
-    creatLine(screen);
+    createLine(screen);
+
     while(!txGetAsyncKeyState(VK_ESCAPE)) {
         draw_graph(screen, eqCoeff);
 
-        bool flag = change_scale(&screen.scaleX, &screen.scaleY);
-        if (flag) {
+        bool changeFlag = change_scale(&screen.scaleX, &screen.scaleY);
+        if (changeFlag) {
             txSetFillColor(TX_BLACK);
             txClear();
-
-            creatLine(screen);
-            flag = false;
+            createLine(screen);
+            changeFlag = false;
         }
     }
-
 }
 
 void draw_graph(screenParams screen, coeff* eqCoeff) {
     assert(eqCoeff != NULL);
 
-    for(double x = -screen.Width; x < screen.Width; x += 0.01) {
+    for(double x = -screen.width; x < screen.width; x += 0.01) {
         double y = find_y(eqCoeff, x);
-        txSetPixel(x * screen.scaleX + screen.Width / 2, -y * screen.scaleY + screen.Height / 2, blue);
+        txSetPixel(x * screen.scaleX + screen.halfWidth, -y * screen.scaleY + screen.halfHeight, blue);
     }
 }
 
-void creatLine(screenParams screen) {
-    txLine(0, screen.halfHeight, screen.Width, screen.halfHeight);
-    txLine(screen.halfWidth, 0, screen.halfWidth, screen.Height);
+void createLine(screenParams screen) { // create
+    txLine(0, screen.halfHeight, screen.width, screen.halfHeight);
+    txLine(screen.halfWidth, 0, screen.halfWidth, screen.height);
 
     print_scale(screen.scaleX, screen.scaleY);
 
-    txTextOut(screen.halfWidth - shift, screen.halfHeight + shift, "0");
     draw_axes(screen);
 }
 
 void draw_axes(screenParams screen) {
-    const int stepX = (int)screen.Width / 6, stepY = (int)screen.Height / 6;
+    const int stepX = (int)screen.width / 6,
+              stepY = (int)screen.height / 6;
     char buffer[buffSize] = {}, negBuffer[buffSize] = {};
 
+    txTextOut(screen.halfWidth - shift, screen.halfHeight + shift, "0");
     for (int x = (int)screen.halfWidth + stepX, y = (int)screen.halfHeight + stepY, cnt = 1; cnt < 3;
     x += stepX, y += stepY, cnt += 1){
         //draw X axis
         int number = (int)round((x - screen.halfWidth) / screen.scaleX);
-        snprintf(buffer, sizeof(buffer), "%i", number);
-        snprintf(negBuffer, sizeof(negBuffer), "%i", -number);
+        snprintf(buffer, sizeof(buffer), "%d", number);
+        snprintf(negBuffer, sizeof(negBuffer), "%d", -number);
 
         txTextOut(x, screen.halfHeight + shift, buffer);
         txTextOut(x - cnt * 2 * stepX, screen.halfHeight + shift, negBuffer);
 
         //draw Y axis
         number = (int)round((y - screen.halfHeight) / screen.scaleY);
-        snprintf(buffer, sizeof(buffer), "%i", number);
-        snprintf(negBuffer, sizeof(negBuffer), "%i", -number);
+        snprintf(buffer, sizeof(buffer), "%d", number);
+        snprintf(negBuffer, sizeof(negBuffer), "%d", -number);
 
         txTextOut(screen.halfWidth - shift, y, negBuffer);
         txTextOut(screen.halfWidth - shift, y - cnt * 2 * stepY, buffer);
@@ -87,25 +98,27 @@ void draw_axes(screenParams screen) {
 
 void print_scale(double scaleX, double scaleY){
     char bufferX[buffSize] = {}, bufferY[buffSize] = {};
-    snprintf(bufferX, sizeof(bufferX), "scaleX: %lf", round(scaleX * 100) / 100);
-    snprintf(bufferY, sizeof(bufferY), "scaleY: %lf", round(scaleY * 100) / 100);
+    const int rounding = 100;
+    const int shiftX = 25, shiftY = 25;
+    snprintf(bufferX, sizeof(bufferX), "scaleX: %lf", round(scaleX * rounding) / rounding);
+    snprintf(bufferY, sizeof(bufferY), "scaleY: %lf", round(scaleY * rounding) / rounding);
 
-    txTextOut(25, 25, bufferX);
-    txTextOut(25, 50, bufferY);
+    txTextOut(shiftX, shiftY, bufferX);
+    txTextOut(shiftX, shiftY * 2, bufferY);
 }
 
-void calculate_scale(double xv, double yv, screenParams* screen) {
+void calculate_scale(double x0, double y0, screenParams* screen) {
     assert(screen != NULL);
 
-    double maxX = screen->halfWidth * 0.5;
+    double maxX = screen->halfWidth * 0.5; // 0.5
     double maxY = screen->halfHeight * 0.5;
 
-    if (fabs(xv) > maxX) {
-        screen->scaleX = maxX / fabs(xv);
+    if (fabs(x0) > maxX / screen->scaleX) {
+        screen->scaleX = maxX / fabs(x0);
     }
 
-    if (fabs(yv) > maxY) {
-        screen->scaleY = maxY / fabs(yv);
+    if (fabs(y0) > maxY / screen->scaleY) {
+        screen->scaleY = maxY / fabs(y0);
     }
 }
 
@@ -113,27 +126,28 @@ bool change_scale(double* scaleX, double* scaleY) {
     assert(scaleX != NULL);
     assert(scaleY != NULL);
 
-    bool fl = false;
+    bool changeFlag = false;
     if(txGetAsyncKeyState(VK_RIGHT)) {
-        (*scaleX) *= 1.5;
-        fl = true;
+        (*scaleX) *= graphScale;
+        changeFlag = true;
     }
     if(txGetAsyncKeyState(VK_LEFT)) {
-        (*scaleX) /= 1.5;
-        fl = true;
+        (*scaleX) /= graphScale;
+        changeFlag = true;
     }
     if(txGetAsyncKeyState(VK_DOWN)) {
-        (*scaleY) /= 1.5;
-        fl = true;
+        (*scaleY) /= graphScale;
+        changeFlag = true;
     }
     if(txGetAsyncKeyState(VK_UP)) {
-        (*scaleY) *= 1.5;
-        fl = true;
+        (*scaleY) *= graphScale;
+        changeFlag = true;
     }
 
-    return fl;
+    return changeFlag;
 }
 
 double find_y(coeff* eqCoeff, double x) {
-    return eqCoeff->a * x * x + eqCoeff->b*x + eqCoeff->c;
+    assert(eqCoeff != NULL);
+    return eqCoeff->a * x * x + eqCoeff->b * x + eqCoeff->c;
 }

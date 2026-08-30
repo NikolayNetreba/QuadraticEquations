@@ -465,3 +465,207 @@ Run file:	C:\Users\nnetr\projects\a.exe
 Directory:	C:\Users\nnetr\projects
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\nnetr\projects\a.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF689FF23A0 (64-bit), Flags: Cmdre0, Thread: 0x6B20 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF689FAE39E in C:\Users\nnetr\projects\a.exe: TX::_txError()
+# 1 0x00007FF689FAE709 in C:\Users\nnetr\projects\a.exe: TX::_txOnSignal()
+# 2 0x00007FFF2FFC6EAF in C:\WINDOWS\System32\ucrtbase.dll: memcpy()
+# 3 0x00007FF689FC4CA0 in C:\Users\nnetr\projects\a.exe: __mingw_SEH_error_handler() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crt_handler.c:105
+# 4 0x00007FFF32964ABF in C:\WINDOWS\SYSTEM32\ntdll.dll: _chkstk()
+# 5 0x00007FFF32845E97 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlLocateExtendedFeature()
+# 6 0x00007FFF329643FE in C:\WINDOWS\SYSTEM32\ntdll.dll: KiUserExceptionDispatcher()
+
+# 7 0x00007FF689FA2BC5 in C:\Users\nnetr\projects\a.exe: createGraph() at C:/Users/nnetr/projects/createGraph.cpp:21:
+
+     19:         x0 = rootsOfEq.x1;
+     20:     } else {
+=>   21:         x0 = -eqCoeff->b / (2 * eqCoeff->a);
+     22:         y0 = find_y(eqCoeff, x0);
+     23:     }
+
+# 8 0x00007FF689FA1AA5 in C:\Users\nnetr\projects\a.exe: handle_op_status() at C:/Users/nnetr/projects/input.cpp:26:
+
+     24: 
+     25:     if (graphStatus == op_yes) {
+=>   26:       createGraph(&eqCoeff, rootsOfEq);
+     27:     }
+     28:     break;
+#11 0x00007FF689FEC8D8 in C:\Users\nnetr\projects\a.exe: register_frame_ctor()
+
+#13 0x00007FF689FA1B61 in C:\Users\nnetr\projects\a.exe: input_coefficients() at C:/Users/nnetr/projects/input.cpp:50:
+
+     48:   switch (op) {
+     49:     case op_console: {
+=>   50:       scan_coefficient(eqCoeff);
+     51:       return OP_STATUS_OK;
+     52:     }
+#15 0x00007FF68A0274B0 in C:\Users\nnetr\projects\a.exe: register_frame_ctor()
+#17 0x00007FF689FA10FA in C:\Users\nnetr\projects\a.exe: __tmainCRTStartup() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:276
+#18 0x00007FFF319ACCB7 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#19 0x00007FFF328AAD6C in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\nnetr\Downloads\TX\TXLib.h
+Compiled:	Aug 27 2026 14:22:48, GNU g++ 16.1.0, std=202002L, MinGW-W64 Runtime 15.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Aug 30 2026 11:59:21
+
+Run file:	C:\Users\nnetr\projects\a.exe
+Directory:	C:\Users\nnetr\projects
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\nnetr\projects\a.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF6AFB823A0 (64-bit), Flags: Cmdre0, Thread: 0x5DC4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6AFB3E3DE in C:\Users\nnetr\projects\a.exe: TX::_txError()
+# 1 0x00007FF6AFB3E749 in C:\Users\nnetr\projects\a.exe: TX::_txOnSignal()
+# 2 0x00007FFF2FFC6EAF in C:\WINDOWS\System32\ucrtbase.dll: memcpy()
+# 3 0x00007FF6AFB54CE0 in C:\Users\nnetr\projects\a.exe: __mingw_SEH_error_handler() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crt_handler.c:105
+# 4 0x00007FFF32964ABF in C:\WINDOWS\SYSTEM32\ntdll.dll: _chkstk()
+# 5 0x00007FFF32845E97 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlLocateExtendedFeature()
+# 6 0x00007FFF329643FE in C:\WINDOWS\SYSTEM32\ntdll.dll: KiUserExceptionDispatcher()
+
+# 7 0x00007FF6AFB32BF9 in C:\Users\nnetr\projects\a.exe: createGraph() at C:/Users/nnetr/projects/createGraph.cpp:23:
+
+     21:     } else {
+     22:         assert(is_zero(eqCoeff->a));
+=>   23:         x0 = -eqCoeff->b / (2 * eqCoeff->a);
+     24:         y0 = find_y(eqCoeff, x0);
+     25:     }
+
+# 8 0x00007FF6AFB31AA5 in C:\Users\nnetr\projects\a.exe: handle_op_status() at C:/Users/nnetr/projects/input.cpp:26:
+
+     24: 
+     25:     if (graphStatus == op_yes) {
+=>   26:       createGraph(&eqCoeff, rootsOfEq);
+     27:     }
+     28:     break;
+#11 0x00007FF6AFB7C8F8 in C:\Users\nnetr\projects\a.exe: register_frame_ctor()
+
+#13 0x00007FF6AFB31B61 in C:\Users\nnetr\projects\a.exe: input_coefficients() at C:/Users/nnetr/projects/input.cpp:50:
+
+     48:   switch (op) {
+     49:     case op_console: {
+=>   50:       scan_coefficient(eqCoeff);
+     51:       return OP_STATUS_OK;
+     52:     }
+#15 0x00007FF6AFBB74B0 in C:\Users\nnetr\projects\a.exe: register_frame_ctor()
+#17 0x00007FF6AFB310FA in C:\Users\nnetr\projects\a.exe: __tmainCRTStartup() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:276
+#18 0x00007FFF319ACCB7 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#19 0x00007FFF328AAD6C in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\nnetr\Downloads\TX\TXLib.h
+Compiled:	Aug 27 2026 14:22:48, GNU g++ 16.1.0, std=202002L, MinGW-W64 Runtime 15.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Aug 30 2026 12:07:11
+
+Run file:	C:\Users\nnetr\projects\a.exe
+Directory:	C:\Users\nnetr\projects
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\nnetr\projects\a.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF7C73323A0 (64-bit), Flags: Cmdre0, Thread: 0x2938 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7C72EE3DE in C:\Users\nnetr\projects\a.exe: TX::_txError()
+# 1 0x00007FF7C72EE749 in C:\Users\nnetr\projects\a.exe: TX::_txOnSignal()
+# 2 0x00007FFF2FFC6EAF in C:\WINDOWS\System32\ucrtbase.dll: memcpy()
+# 3 0x00007FF7C7304CE0 in C:\Users\nnetr\projects\a.exe: __mingw_SEH_error_handler() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crt_handler.c:105
+# 4 0x00007FFF32964ABF in C:\WINDOWS\SYSTEM32\ntdll.dll: _chkstk()
+# 5 0x00007FFF32845E97 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlLocateExtendedFeature()
+# 6 0x00007FFF329643FE in C:\WINDOWS\SYSTEM32\ntdll.dll: KiUserExceptionDispatcher()
+
+# 7 0x00007FF7C72E2C0A in C:\Users\nnetr\projects\a.exe: createGraph() at C:/Users/nnetr/projects/createGraph.cpp:23:
+
+     21:     } else {
+     22:         assert(is_zero(eqCoeff->a));
+=>   23:         x0 = -eqCoeff->b / (2 * eqCoeff->a);
+     24:         y0 = find_y(eqCoeff, x0);
+     25:     }
+
+# 8 0x00007FF7C72E1AA5 in C:\Users\nnetr\projects\a.exe: handle_op_status() at C:/Users/nnetr/projects/input.cpp:26:
+
+     24: 
+     25:     if (graphStatus == op_yes) {
+=>   26:       createGraph(&eqCoeff, rootsOfEq);
+     27:     }
+     28:     break;
+#11 0x00007FF7C732C8F8 in C:\Users\nnetr\projects\a.exe: register_frame_ctor()
+
+#13 0x00007FF7C72E1B61 in C:\Users\nnetr\projects\a.exe: input_coefficients() at C:/Users/nnetr/projects/input.cpp:50:
+
+     48:   switch (op) {
+     49:     case op_console: {
+=>   50:       scan_coefficient(eqCoeff);
+     51:       return OP_STATUS_OK;
+     52:     }
+#15 0x00007FF7C73674B0 in C:\Users\nnetr\projects\a.exe: register_frame_ctor()
+#17 0x00007FF7C72E10FA in C:\Users\nnetr\projects\a.exe: __tmainCRTStartup() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:276
+#18 0x00007FFF319ACCB7 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#19 0x00007FFF328AAD6C in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\nnetr\Downloads\TX\TXLib.h
+Compiled:	Aug 27 2026 14:22:48, GNU g++ 16.1.0, std=202002L, MinGW-W64 Runtime 15.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Aug 30 2026 12:08:56
+
+Run file:	C:\Users\nnetr\projects\a.exe
+Directory:	C:\Users\nnetr\projects
+
+--------------------------------------------------

@@ -11,19 +11,21 @@ const int buffSize = 20;
 const double graphScale = 1.5;
 const COLORREF blue = RGB(0, 191, 255);
 
-void createGraph(coeff* eqCoeff, eqRoots rootsOfEq) {
+void createGraph(coeff* eqCoeff, eqRoots* rootsOfEq) {
     assert(eqCoeff);
 
     double x0 = 0.0, y0 = 0.0;
-    if (rootsOfEq.nRoots == ONE_ROOT){
-        x0 = rootsOfEq.x1;
+    // printf("%d", rootsOfEq->nRoots);
+    if (rootsOfEq->nRoots == ONE_ROOT){
+        x0 = rootsOfEq->x1;
     } else {
+        //assert(is_zero(eqCoeff->a));
         x0 = -eqCoeff->b / (2 * eqCoeff->a);
         y0 = find_y(eqCoeff, x0);
     }
 
     screenParams screen = {
-        .width  = txGetExtentX(),//TODO
+        .width  = txGetExtentX(),
         .height = txGetExtentY(),
         .halfWidth  = screen.width  / 2,
         .halfHeight = screen.height / 2,
@@ -32,20 +34,20 @@ void createGraph(coeff* eqCoeff, eqRoots rootsOfEq) {
     };
 
     txCreateWindow(screen.width, screen.height);
-    txClearConsole();
-    printf("%lf, %lf\n", x0, y0);
+    //txClearConsole();
     calculate_scale(x0, y0, &screen);
+    // printf("%d", rootsOfEq->nRoots);
 
     txSetColor(TX_WHITE, 1);
     createLine(screen);
 
     while(!txGetAsyncKeyState(VK_ESCAPE)) {
-        draw_graph(screen, eqCoeff);
-
+         draw_graph(screen, eqCoeff);
         bool changeFlag = change_scale(&screen.scaleX, &screen.scaleY);
         if (changeFlag) {
             txSetFillColor(TX_BLACK);
             txClear();
+
             createLine(screen);
             changeFlag = false;
         }

@@ -9,24 +9,32 @@
 void handle_op_status(coeff eqCoeff, opStatus* state) {
   assert(state != NULL);
 
+  eqRoots rootsOfEq = {};
+  opYN graphStatus = op_no;
   switch (*state) {
   case OP_STATUS_DO_IT_AGAIN:
     break;
   case OP_STATUS_EXIT:
     printf(MAKE_MAGENTA("Bye!\n"));
     return;
-  case OP_STATUS_OK: {
-    eqRoots rootsOfEq;
+  case OP_STATUS_OK:
     rootsOfEq.nRoots = solve_quadratic_equations(eqCoeff, &rootsOfEq);
+    // printf("%d\n", rootsOfEq.nRoots);
     print_root(rootsOfEq);
+    // printf("%d\n", rootsOfEq.nRoots);
 
-    opYN graphStatus = scan_yes_or_no();
+    graphStatus = scan_yes_or_no(NULL);
+    // graphStatus = op_no;
 
+    // printf("%d\n", rootsOfEq.nRoots);
+    // printf("%c %c\n", graphStatus, op_yes);
     if (graphStatus == op_yes) {
-      createGraph(&eqCoeff, rootsOfEq);
+      // printf("%d\n", rootsOfEq.nRoots);
+
+      createGraph(&eqCoeff, &rootsOfEq);
     }
     break;
-  }
+
   case OP_STATUS_TEST:
     start_tests();
     break;
@@ -81,17 +89,27 @@ void scan_op(opChoose *op) {
   *op = (opChoose)temp;
 }
 
-opYN scan_yes_or_no() {
+opYN scan_yes_or_no(eqRoots* rootsOfEq) {
+
+  // printf("scan_yes_or_no1: %d\n", rootsOfEq->nRoots);
   printf("Do you want to create a graph? [y/n]\n");
 
-  char temp = 'n';
+  char temp[2] = {'a', 'a'};
 
-  while (scanf(" %1[yn]", &temp) != 1) {
+  while (scanf(" %1[yn]", temp) != 1) {
     printf(MAKE_RED("Try it again: "));
     clear_buffer();
   }
 
-  return (opYN)temp;
+  printf("debug: %c %c\n", temp[0], temp[1]);
+
+  // printf("scan_yes_or_no2: %d\n", rootsOfEq->nRoots);
+  // printf("%c\n", (opYN)temp);
+  if (temp[0] == 'y') {
+    return op_yes;
+  } else {
+    return op_no;
+  }
 }
 
 void choose_option(opChoose *op) {

@@ -24,8 +24,8 @@ struct coeff {
 
 struct eqRoots {
     double x1, x2;
-    roots nRoots; // 32b == 4
-    int x; // 4b == 2^32
+    roots nRoots;
+    int x;
 };
 
 typedef enum {

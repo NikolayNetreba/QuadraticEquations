@@ -25,7 +25,7 @@ typedef enum {
 
 typedef enum {
     op_yes = 'y',
-    op_no = 'n',
+    op_no = 'n'
 } opYN;
 
 /**
@@ -38,7 +38,7 @@ void scan_op(opChoose *op);
  @brief считывает выбор пользователя: рисовать или не рисовать график
  @return выбор пользователя
 */
-opYN scan_yes_or_no();
+opYN scan_yes_or_no(eqRoots* rootsOfEq);
 
 /**
  @brief дает выбор пользователю: консоль, файл, тест, выход
